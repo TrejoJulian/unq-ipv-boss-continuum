@@ -1,19 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/background/4127298.jpg" type="Texture" id=1]
 [ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/arrow/ArrowButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/arrows/right/arrow_button_right1.png" type="Texture" id=4]
+[ext_resource path="res://entities/note/NoteSpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/note/Note.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Game.gd" type="Script" id=7]
+[ext_resource path="res://entities/arrow/BadArea.tscn" type="PackedScene" id=8]
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -5.93396
-margin_top = -3.13944
+margin_top = -4.08335
 margin_right = 2994.07
-margin_bottom = 1996.86
+margin_bottom = 1995.92
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -28,6 +33,21 @@ position = Vector2( 358.368, 488.017 )
 scale = Vector2( 3, 3 )
 
 [node name="ArrowRight" parent="." instance=ExtResource( 3 )]
-position = Vector2( 639.532, 488.017 )
+position = Vector2( 639.532, 487.31 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
+
+[node name="LeftSideNoteSpawner" parent="." instance=ExtResource( 5 )]
+position = Vector2( 105.734, 485.859 )
+note_scene = ExtResource( 6 )
+note_direction = "Left"
+
+[node name="RightSideNoteSpawner" parent="." instance=ExtResource( 5 )]
+position = Vector2( 935.956, 483.96 )
+note_scene = ExtResource( 6 )
+
+[node name="LeftBadArea" parent="." instance=ExtResource( 8 )]
+position = Vector2( 429.413, 487.322 )
+
+[node name="RightBadArea" parent="." instance=ExtResource( 8 )]
+position = Vector2( 571.066, 486.431 )
