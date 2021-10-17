@@ -7,8 +7,17 @@ extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
+func _ready():
+	randomize()
+	$RightNoteTimer.start()
 
 
 func _physics_process(delta):
-	$LeftSideNoteSpawner.spawn($ArrowLeft.global_position)
-	$RightSideNoteSpawner.spawn($ArrowRight.global_position)
+	pass
+#	$LeftSideNoteSpawner.spawn()
+#	$RightSideNoteSpawner.spawn()
+
+
+func _on_RightNoteTimer_timeout():
+	$LeftSideNoteSpawner.spawn()
+	$RightSideNoteSpawner.spawn()

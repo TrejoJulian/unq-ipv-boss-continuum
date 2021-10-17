@@ -13,12 +13,13 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4.05703, 3.99874 )
+extents = Vector2( 7.52552, 11.9751 )
 
 [node name="Note" type="Area2D"]
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 3, 3 )
 frames = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

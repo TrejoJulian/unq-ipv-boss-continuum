@@ -51,3 +51,8 @@ position = Vector2( 429.413, 487.322 )
 
 [node name="RightBadArea" parent="." instance=ExtResource( 8 )]
 position = Vector2( 571.066, 486.431 )
+
+[node name="RightNoteTimer" type="Timer" parent="."]
+wait_time = 1.558
+
+[connection signal="timeout" from="RightNoteTimer" to="." method="_on_RightNoteTimer_timeout"]

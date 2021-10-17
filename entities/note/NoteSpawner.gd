@@ -5,7 +5,7 @@ export (String) var note_direction:String = "Right"
 
 #signal spawned(spawn)
 
-func spawn(goal):
+func spawn():
 	var note = note_scene.instance()
 	
 	add_child(note)
