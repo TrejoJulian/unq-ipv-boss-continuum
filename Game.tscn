@@ -26,8 +26,6 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
-[node name="RoadMap(No tiene nada hecho)" type="Node2D" parent="."]
-
 [node name="ArrowLeft" parent="." instance=ExtResource( 3 )]
 position = Vector2( 358.368, 488.017 )
 scale = Vector2( 3, 3 )
@@ -47,10 +45,10 @@ note_direction = "Left"
 position = Vector2( 935.956, 483.96 )
 note_scene = ExtResource( 6 )
 
-[node name="LeftBadArea" parent="." instance=ExtResource( 8 )]
+[node name="BadArea" parent="." instance=ExtResource( 8 )]
 position = Vector2( 495.339, 489.104 )
 
-[node name="RightNoteTimer" type="Timer" parent="."]
+[node name="NoteTimer" type="Timer" parent="."]
 wait_time = 1.558
 
-[connection signal="timeout" from="RightNoteTimer" to="." method="_on_RightNoteTimer_timeout"]
+[connection signal="timeout" from="NoteTimer" to="." method="_on_RightNoteTimer_timeout"]
