@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name Note
+
 export var speed:float = 100
 var hit = false
 
@@ -28,21 +30,24 @@ func initialize(pos, note_direction):
 		return
 
 
-#func destroy(score):
+func destroy(score):
 #	$CPUParticles2D.emitting = true
 #	$AnimatedSprite.visible = false
-#	$Timer.start()
-#	hit = true
-#	if score == 3:
-#		$Node2D/Label.text = "GREAT"
-#		$Node2D/Label.modulate = Color("f6d6bd")
-#	elif score == 2:
-#		$Node2D/Label.text = "GOOD"
-#		$Node2D/Label.modulate = Color("c3a38a")
-#	elif score == 1:
-#		$Node2D/Label.text = "OKAY"
-#		$Node2D/Label.modulate = Color("997577")
-#
+	$Timer.start()
+	hit = true
+	if score == 3:
+		$Node2D/Label.text = "PERFECT"
+		$Node2D/Label.modulate = Color("f6d6bd")
+	elif score == 2:
+		$Node2D/Label.text = "GREAT"
+		$Node2D/Label.modulate = Color("c3a38a")
+	elif score == 1:
+		$Node2D/Label.text = "OKAY"
+		$Node2D/Label.modulate = Color("997577")
+
+
+
+
 
 func bad_area_entered():
 	queue_free()
