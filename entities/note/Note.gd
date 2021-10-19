@@ -38,17 +38,20 @@ func destroy(score):
 	if score == 3:
 		$Node2D/Label.text = "PERFECT"
 		$Node2D/Label.modulate = Color("f6d6bd")
+		#get_parent().increase_score(3)
 	elif score == 2:
 		$Node2D/Label.text = "GREAT"
 		$Node2D/Label.modulate = Color("c3a38a")
+		#get_parent().increase_score(2)
 	elif score == 1:
 		$Node2D/Label.text = "OKAY"
 		$Node2D/Label.modulate = Color("997577")
+		#get_parent().increase_score(1)
 
 
 func bad_area_entered():
 	queue_free()
-#	get_parent().reset_combo()
+#	get_parent().handle_miss()
 
 func _on_Timer_timeout():
 	queue_free()

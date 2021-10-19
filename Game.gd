@@ -4,7 +4,6 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var total_notes = 0
 var score = 0
 var note_strike = 0
 
@@ -22,6 +21,7 @@ func _physics_process(delta):
 
 
 func increase_score(n):
+	note_strike += 1
 	score += n
 	
 	
@@ -31,17 +31,15 @@ func handle_miss():
 
 
 func _on_RightNoteTimer_timeout():
-	total_notes += 1
 	$RightSideNoteSpawner.spawn()
-	if(total_notes <= 10):
+	if(note_strike <= 10):
 		$RightNoteTimer.wait_time = randi()%6+3
 	else:
 		$RightNoteTimer.wait_time = randi()%4+1
 
 func _on_LeftNoteTimer_timeout():
-	total_notes += 1
 	$LeftSideNoteSpawner.spawn()
-	if(total_notes <= 5):
+	if(note_strike <= 10):
 		$LeftNoteTimer.wait_time = randi()%6+3
 	else:
 		$LeftNoteTimer.wait_time = randi()%4+1
