@@ -39,14 +39,11 @@ func _unhandled_input(event):
 			$PushTimer.start()
 
 
-
 func _reset():
 	current_note = null
 	perfect = false
 	great = false
 	okay = false
-
-
 
 
 func _on_PerfectArea_area_entered(area):

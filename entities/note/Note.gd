@@ -46,9 +46,6 @@ func destroy(score):
 		$Node2D/Label.modulate = Color("997577")
 
 
-
-
-
 func bad_area_entered():
 	queue_free()
 #	get_parent().reset_combo()
