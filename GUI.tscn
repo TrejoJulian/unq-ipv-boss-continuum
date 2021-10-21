@@ -37,21 +37,21 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/VBoxContainer"]
-margin_top = 50.0
+margin_top = 131.0
 margin_right = 1024.0
 margin_bottom = 181.0
 custom_constants/separation = 30
 
 [node name="ExitButton" type="TextureButton" parent="Background/VBoxContainer/HBoxContainer"]
 margin_right = 50.0
-margin_bottom = 131.0
+margin_bottom = 50.0
 size_flags_horizontal = 8
 texture_normal = ExtResource( 6 )
 
 [node name="VolumeButton" type="TextureButton" parent="Background/VBoxContainer/HBoxContainer"]
 margin_left = 80.0
 margin_right = 130.0
-margin_bottom = 131.0
+margin_bottom = 50.0
 size_flags_horizontal = 8
 texture_normal = ExtResource( 5 )
 __meta__ = {
