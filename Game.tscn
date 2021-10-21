@@ -48,7 +48,9 @@ note_scene = ExtResource( 6 )
 [node name="BadArea" parent="." instance=ExtResource( 8 )]
 position = Vector2( 495.339, 489.104 )
 
-[node name="NoteTimer" type="Timer" parent="."]
-wait_time = 1.558
+[node name="RightNoteTimer" type="Timer" parent="."]
 
-[connection signal="timeout" from="NoteTimer" to="." method="_on_RightNoteTimer_timeout"]
+[node name="LeftNoteTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="RightNoteTimer" to="." method="_on_RightNoteTimer_timeout"]
+[connection signal="timeout" from="LeftNoteTimer" to="." method="_on_LeftNoteTimer_timeout"]
