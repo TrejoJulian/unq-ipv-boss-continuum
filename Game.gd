@@ -32,7 +32,7 @@ func increase_score(n):
 func handle_miss():
 	health_bar -= 10
 	note_streak = 0
-	
+	$Player.handle_miss()
 
 
 func _on_RightNoteTimer_timeout():

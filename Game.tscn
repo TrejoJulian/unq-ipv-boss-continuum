@@ -25,7 +25,8 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 512, 400 )
+position = Vector2( 512, 430 )
+scale = Vector2( 1.3, 1.3 )
 
 [node name="ArrowLeft" parent="." instance=ExtResource( 3 )]
 position = Vector2( 350, 480 )
