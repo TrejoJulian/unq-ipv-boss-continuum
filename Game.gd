@@ -23,8 +23,8 @@ func _physics_process(delta):
 func increase_score(n):
 	note_strike += 1
 	score += n
-	
-	
+
+
 func handle_miss():
 	note_strike = 0
 	score -= 1
