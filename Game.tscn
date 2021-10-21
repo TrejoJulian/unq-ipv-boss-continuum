@@ -16,41 +16,45 @@ script = ExtResource( 7 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -5.93396
-margin_top = -4.97428
+margin_top = -5.60386
 margin_right = 2994.07
-margin_bottom = 1995.03
+margin_bottom = 1994.4
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 512, 400 )
 
 [node name="ArrowLeft" parent="." instance=ExtResource( 3 )]
-position = Vector2( 358.368, 488.017 )
+position = Vector2( 350, 480 )
 scale = Vector2( 3, 3 )
 
 [node name="ArrowRight" parent="." instance=ExtResource( 3 )]
-position = Vector2( 639.532, 487.31 )
+position = Vector2( 674, 480 )
 scale = Vector2( 3, 3 )
 frames = ExtResource( 4 )
 input = "right_arrow_pressed"
 
 [node name="LeftSideNoteSpawner" parent="." instance=ExtResource( 5 )]
-position = Vector2( 105.734, 485.859 )
+position = Vector2( 100, 480 )
 note_scene = ExtResource( 6 )
 note_direction = "Left"
 
 [node name="RightSideNoteSpawner" parent="." instance=ExtResource( 5 )]
-position = Vector2( 935.956, 483.96 )
+position = Vector2( 924, 480 )
 note_scene = ExtResource( 6 )
 
 [node name="BadArea" parent="." instance=ExtResource( 8 )]
-position = Vector2( 495.339, 489.104 )
+position = Vector2( 512, 480 )
 
 [node name="RightNoteTimer" type="Timer" parent="."]
 
 [node name="LeftNoteTimer" type="Timer" parent="."]
 
+[node name="HealthTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="RightNoteTimer" to="." method="_on_RightNoteTimer_timeout"]
 [connection signal="timeout" from="LeftNoteTimer" to="." method="_on_LeftNoteTimer_timeout"]
+[connection signal="timeout" from="HealthTimer" to="." method="_on_HealthTimer_timeout"]

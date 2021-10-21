@@ -22,17 +22,17 @@ func _unhandled_input(event):
 		if event.is_action_pressed(input, false):
 			if current_note != null:
 				if perfect:
-					#get_parent().increase_score(perfect_score)
+					get_parent().increase_score(perfect_score)
 					current_note.destroy(perfect_score)
 				elif great:
-					#get_parent().increase_score(great_score)
+					get_parent().increase_score(great_score)
 					current_note.destroy(great_score)
 				elif okay:
-					#get_parent().increase_score(okay_score)
+					get_parent().increase_score(okay_score)
 					current_note.destroy(okay_score)
 				_reset()
-			#else:
-				#get_parent().handle_miss()
+			else:
+				get_parent().handle_miss()
 		if event.is_action_pressed(input):
 			frame = 1
 		elif event.is_action_released(input):
