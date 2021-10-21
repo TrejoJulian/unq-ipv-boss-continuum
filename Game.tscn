@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/background/4127298.jpg" type="Texture" id=1]
 [ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://entities/note/Note.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game.gd" type="Script" id=7]
 [ext_resource path="res://entities/arrow/BadArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/music/Komiku_-_07_-_Run_against_the_universe.mp3" type="AudioStream" id=9]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 7 )
@@ -39,12 +40,12 @@ frames = ExtResource( 4 )
 input = "right_arrow_pressed"
 
 [node name="LeftSideNoteSpawner" parent="." instance=ExtResource( 5 )]
-position = Vector2( 100, 480 )
+position = Vector2( 0, 480 )
 note_scene = ExtResource( 6 )
 note_direction = "Left"
 
 [node name="RightSideNoteSpawner" parent="." instance=ExtResource( 5 )]
-position = Vector2( 924, 480 )
+position = Vector2( 1024, 480 )
 note_scene = ExtResource( 6 )
 
 [node name="BadArea" parent="." instance=ExtResource( 8 )]
@@ -55,6 +56,10 @@ position = Vector2( 512, 480 )
 [node name="LeftNoteTimer" type="Timer" parent="."]
 
 [node name="HealthTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
 
 [connection signal="timeout" from="RightNoteTimer" to="." method="_on_RightNoteTimer_timeout"]
 [connection signal="timeout" from="LeftNoteTimer" to="." method="_on_LeftNoteTimer_timeout"]

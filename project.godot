@@ -21,8 +21,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Continuum"
-run/main_scene="res://GUI.tscn"
+run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://globals/Global.gd"
+GameStatus="*res://globals/GameStatus.gd"
 
 [display]
 
