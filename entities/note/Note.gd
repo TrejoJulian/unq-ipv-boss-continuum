@@ -4,11 +4,7 @@ class_name Note
 
 export var speed:float = 100
 var hit = false
-
-
-func _ready():
-	pass
-
+onready var label = $Node2D/Label
 
 func _physics_process(delta):
 	if !hit:
@@ -31,19 +27,17 @@ func initialize(pos, note_direction):
 
 
 func destroy(score):
-#	$CPUParticles2D.emitting = true
-#	$AnimatedSprite.visible = false
 	$Timer.start()
 	hit = true
 	if score == 3:
-		$Node2D/Label.text = "PERFECT"
-		$Node2D/Label.modulate = Color("f6d6bd")
+		label.text = "PERFECT"
+		label.modulate = Color("f6d6bd")
 	elif score == 2:
-		$Node2D/Label.text = "GREAT"
-		$Node2D/Label.modulate = Color("c3a38a")
+		label.text = "GREAT"
+		label.modulate = Color("c3a38a")
 	elif score == 1:
-		$Node2D/Label.text = "OKAY"
-		$Node2D/Label.modulate = Color("997577")
+		label.text = "OKAY"
+		label.modulate = Color("997577")
 
 
 func bad_area_entered():

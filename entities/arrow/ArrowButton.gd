@@ -12,10 +12,6 @@ var okay_score: int = 1
 export var input:String = "left_arrow_pressed"
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 
 func _unhandled_input(event):
 	if event.is_action(input):

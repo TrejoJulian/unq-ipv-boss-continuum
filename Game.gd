@@ -19,9 +19,6 @@ func _ready():
 	$HealthTimer.start()
 
 
-func _physics_process(delta):
-	print(score)
-	print(note_streak)
 
 
 func increase_score(n):
@@ -33,7 +30,7 @@ func increase_score(n):
 
 
 func handle_miss():
-	_decrease_health(15)
+	_decrease_health(10)
 	note_streak = 0
 	streak_label.text ="Streak: " + str(note_streak) 
 	$Player.handle_miss()
