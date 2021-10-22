@@ -2,10 +2,12 @@ extends Node2D
 
 
 # Declare member variables here. Examples:
-var health_bar = 100
 var score = 0
 var note_streak = 0
 
+onready var health = $Health
+onready var score_label = $Score
+onready var streak_label = $Streak
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,20 +20,22 @@ func _ready():
 
 
 func _physics_process(delta):
-	print(health_bar)
 	print(score)
 	print(note_streak)
 
 
 func increase_score(n):
-	_increase_health(5)
+	health.current += 5
 	note_streak += 1
 	score += n
+	score_label.text ="Score: " + str(score)
+	streak_label.text ="Streak: " + str(note_streak)  
 
 
 func handle_miss():
 	_decrease_health(15)
 	note_streak = 0
+	streak_label.text ="Streak: " + str(note_streak) 
 	$Player.handle_miss()
 
 
@@ -54,12 +58,7 @@ func _on_HealthTimer_timeout():
 	_decrease_health(1)
 
 func _decrease_health(amount):
-	if ((health_bar - amount) <= 0):
+	health.current -= amount
+	if health.current == 0:
 		GameStatus.set_score(score)
 		Global.goto_scene("res://Menu.tscn")
-	else:
-		health_bar -= amount
-
-func _increase_health(amount):
-	var new_health = min(100, health_bar + 5)
-	health_bar = new_health
