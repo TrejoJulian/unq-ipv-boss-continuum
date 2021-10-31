@@ -9,6 +9,17 @@ onready var health = $Health
 onready var score_label = $Score
 onready var streak_label = $Streak
 
+# Import JSON Note Map
+var map = File.new()
+
+func _load_map(side):
+	map.open("res://assets/map.json", map.READ)
+	var json = map.get_as_text()
+	var json_result = JSON.parse(json).result
+	map.close()
+	return json_result[side]
+	
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$RightNoteTimer.wait_time = 2
@@ -17,8 +28,8 @@ func _ready():
 	$RightNoteTimer.start()
 	$LeftNoteTimer.start()
 	$HealthTimer.start()
-
-
+	print(self._load_map("left"))
+	print(self._load_map("right"))
 
 
 func increase_score(n):
