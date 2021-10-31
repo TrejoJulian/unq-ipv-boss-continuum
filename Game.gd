@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 
 # Declare member variables here. Examples:
@@ -6,6 +6,7 @@ var score = 0
 var note_streak = 0
 
 onready var health = $Health
+onready var health_bar = $HealthBar
 onready var score_label = $Score
 onready var streak_label = $Streak
 
@@ -17,6 +18,8 @@ func _ready():
 	$RightNoteTimer.start()
 	$LeftNoteTimer.start()
 	$HealthTimer.start()
+	health.connect("changed", health_bar, "set_value")
+	health.connect("max_changed", health_bar, "set_max")
 
 
 

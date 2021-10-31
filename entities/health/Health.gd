@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 signal max_changed(new_max)
 signal changed(max_amount)

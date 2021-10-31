@@ -18,7 +18,7 @@ size = 32
 use_filter = true
 font_data = ExtResource( 12 )
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node"]
 script = ExtResource( 7 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -102,5 +102,3 @@ __meta__ = {
 [connection signal="timeout" from="RightNoteTimer" to="." method="_on_RightNoteTimer_timeout"]
 [connection signal="timeout" from="LeftNoteTimer" to="." method="_on_LeftNoteTimer_timeout"]
 [connection signal="timeout" from="HealthTimer" to="." method="_on_HealthTimer_timeout"]
-[connection signal="changed" from="Health" to="HealthBar" method="set_value"]
-[connection signal="max_changed" from="Health" to="HealthBar" method="set_max"]
