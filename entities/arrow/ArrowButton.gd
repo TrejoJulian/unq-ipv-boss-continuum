@@ -9,8 +9,9 @@ var perfect_score: int = 3
 var great_score: int = 2
 var okay_score: int = 1
 
-export var input:String = "left_arrow_pressed"
+onready var miss_sfx = $MissNote
 
+export var input:String = "left_arrow_pressed"
 
 
 func _unhandled_input(event):
@@ -29,6 +30,7 @@ func _unhandled_input(event):
 				_reset()
 			else:
 				get_parent().handle_miss()
+				miss_sfx.play()
 		if event.is_action_pressed(input):
 			frame = 1
 		elif event.is_action_released(input):

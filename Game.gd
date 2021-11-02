@@ -9,27 +9,43 @@ onready var health = $Health
 onready var score_label = $Score
 onready var streak_label = $Streak
 
+export var first_left_timeout:float = 27.7
+export var first_right_timeout:float = 27.9
+
 # Import JSON Note Map
-var map = File.new()
+var left_map = null
+var right_map = null
+var left_timeouts = 0
+var right_timeouts = 0
 
 func _load_map(side):
+	var map = File.new()
 	map.open("res://assets/map.json", map.READ)
 	var json = map.get_as_text()
 	var json_result = JSON.parse(json).result
 	map.close()
+	
 	return json_result[side]
 	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$RightNoteTimer.wait_time = 2
-	$LeftNoteTimer.wait_time = 2
+	self.left_map = self._load_map("left")
+	self.right_map = self._load_map("right")
+
+	$RightNoteTimer.wait_time = first_right_timeout
+	$LeftNoteTimer.wait_time = first_left_timeout
 	$HealthTimer.wait_time = 0.33
 	$RightNoteTimer.start()
 	$LeftNoteTimer.start()
-	$HealthTimer.start()
-	print(self._load_map("left"))
-	print(self._load_map("right"))
+	
+	$RightNoteTimer.wait_time = right_map[right_timeouts]
+	self.right_timeouts += 1
+	$LeftNoteTimer.wait_time = left_map[left_timeouts]
+	self.left_timeouts += 1
+	
+	print(self.left_map)
+	print(self.right_map)
 
 
 func increase_score(n):
@@ -48,22 +64,28 @@ func handle_miss():
 
 
 func _on_RightNoteTimer_timeout():
+	$HealthTimer.start()
 	$RightSideNoteSpawner.spawn()
-	if(note_streak <= 10):
-		$RightNoteTimer.wait_time = randi()%6+3
-	else:
-		$RightNoteTimer.wait_time = randi()%4+1
+	$RightNoteTimer.wait_time = right_map[right_timeouts]
+	self.right_timeouts += 1
+	if(len(right_map) - 1 < self.right_timeouts):
+		$RightNoteTimer.stop()
+		print("right stop")
+
 
 func _on_LeftNoteTimer_timeout():
 	$LeftSideNoteSpawner.spawn()
-	if(note_streak <= 10):
-		$LeftNoteTimer.wait_time = randi()%6+3
-	else:
-		$LeftNoteTimer.wait_time = randi()%4+1
+	$LeftNoteTimer.wait_time = left_map[left_timeouts]
+	self.left_timeouts += 1
+	if(len(left_map) - 1 < self.left_timeouts):
+		$LeftNoteTimer.stop()
+		print("left stop")
 
 
 func _on_HealthTimer_timeout():
-	_decrease_health(1)
+	if health.current > 1:
+		_decrease_health(1)
+
 
 func _decrease_health(amount):
 	health.current -= amount
