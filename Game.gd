@@ -5,10 +5,8 @@ extends Node
 var score = 0
 var note_streak = 0
 
-onready var health = $Health
-onready var health_bar = $HealthBar
-onready var score_label = $Score
-onready var streak_label = $Streak
+onready var score_label = $GUILayer/Score
+onready var streak_label = $GUILayer/Streak
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,14 +16,12 @@ func _ready():
 	$RightNoteTimer.start()
 	$LeftNoteTimer.start()
 	$HealthTimer.start()
-	health.connect("changed", health_bar, "set_value")
-	health.connect("max_changed", health_bar, "set_max")
 
 
 
 
 func increase_score(n):
-	health.current += 5
+	GameData.current += 5
 	note_streak += 1
 	score += n
 	score_label.text ="Score: " + str(score)
@@ -58,7 +54,7 @@ func _on_HealthTimer_timeout():
 	_decrease_health(1)
 
 func _decrease_health(amount):
-	health.current -= amount
-	if health.current == 0:
+	GameData.current -= amount
+	if GameData.current == 0:
 		GameStatus.set_score(score)
 		Global.goto_scene("res://Menu.tscn")

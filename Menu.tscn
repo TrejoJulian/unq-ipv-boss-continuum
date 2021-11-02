@@ -1,18 +1,23 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
-[ext_resource path="res://assets/background/background_menu_robot.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/background/4127298.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/buttons/door.png" type="Texture" id=3]
 [ext_resource path="res://assets/buttons/audioOn.png" type="Texture" id=4]
 [ext_resource path="res://assets/buttons/buttonStart.png" type="Texture" id=5]
 [ext_resource path="res://assets/fonts/bold_game_font_7.ttf" type="DynamicFontData" id=6]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( -0.27124, 1369.27, 1161, 631.125 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 32
 use_filter = true
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 128
 font_data = ExtResource( 6 )
 
@@ -21,27 +26,30 @@ margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Background" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 2 )
+anchor_right = 57.05
+anchor_bottom = 30.55
+margin_right = -1121.0
+margin_bottom = -591.0
+texture = SubResource( 1 )
+stretch_mode = 5
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = 1027.0
+margin_bottom = 601.0
 custom_constants/separation = 80
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/VBoxContainer"]
-margin_right = 1024.0
+margin_right = 1027.0
 margin_bottom = 50.0
 custom_constants/separation = 30
 
@@ -67,7 +75,7 @@ margin_top = 9.0
 margin_right = 382.0
 margin_bottom = 41.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Previous Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -75,17 +83,17 @@ __meta__ = {
 
 [node name="Title" type="Label" parent="Background/VBoxContainer"]
 margin_top = 130.0
-margin_right = 1024.0
+margin_right = 1027.0
 margin_bottom = 258.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Continuum"
 align = 1
 valign = 1
 
 [node name="StartButton" type="TextureButton" parent="Background/VBoxContainer"]
-margin_left = 462.0
+margin_left = 463.0
 margin_top = 338.0
-margin_right = 562.0
+margin_right = 563.0
 margin_bottom = 438.0
 size_flags_horizontal = 4
 texture_normal = ExtResource( 5 )
