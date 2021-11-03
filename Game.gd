@@ -5,9 +5,11 @@ extends Node
 var score = 0
 var note_streak = 0
 
+
 onready var score_label = $GUILayer/Score
 onready var streak_label = $GUILayer/Streak
-
+onready var right_arrow = $ArrowRight
+onready var left_arrow = $ArrowLeft
 export var first_left_timeout:float = 27.7
 export var first_right_timeout:float = 27.9
 
@@ -29,11 +31,17 @@ func _load_map(side):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+  left_arrow.connect("score_increased",self,"increase_score")
+	left_arrow.connect("miss",self,"handle_miss")
+	right_arrow.connect("score_increased",self,"increase_score")
+	right_arrow.connect("miss",self,"handle_miss")
+  
 	self.left_map = self._load_map("left")
 	self.right_map = self._load_map("right")
 
 	$RightNoteTimer.wait_time = first_right_timeout
 	$LeftNoteTimer.wait_time = first_left_timeout
+
 	$HealthTimer.wait_time = 0.33
 	$RightNoteTimer.start()
 	$LeftNoteTimer.start()

@@ -57,7 +57,7 @@ input = "right_arrow_pressed"
 [node name="LeftSideNoteSpawner" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, 480 )
 note_scene = ExtResource( 6 )
-note_direction = "Left"
+note_direction = -1
 
 [node name="RightSideNoteSpawner" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1024, 480 )
