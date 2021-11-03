@@ -8,9 +8,16 @@ var note_streak = 0
 onready var health = $Health
 onready var score_label = $Score
 onready var streak_label = $Streak
+onready var right_arrow = $ArrowRight
+onready var left_arrow = $ArrowLeft
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	left_arrow.connect("score_increased",self,"increase_score")
+	left_arrow.connect("miss",self,"handle_miss")
+	right_arrow.connect("score_increased",self,"increase_score")
+	right_arrow.connect("miss",self,"handle_miss")
+	
 	$RightNoteTimer.wait_time = 2
 	$LeftNoteTimer.wait_time = 2
 	$HealthTimer.wait_time = 0.33

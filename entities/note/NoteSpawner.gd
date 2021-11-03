@@ -1,7 +1,7 @@
 extends Position2D
 
 export (PackedScene) var note_scene:PackedScene
-export (String) var note_direction:String = "Right"
+export (int) var note_direction:int = 1
 
 
 func spawn():
