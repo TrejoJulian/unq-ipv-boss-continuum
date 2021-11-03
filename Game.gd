@@ -6,8 +6,8 @@ var score = 0
 var note_streak = 0
 
 
-onready var score_label = $GUILayer/Score
-onready var streak_label = $GUILayer/Streak
+onready var score_label = $GUILayer/GUI/Score
+onready var streak_label = $GUILayer/GUI/Streak
 onready var right_arrow = $ArrowRight
 onready var left_arrow = $ArrowLeft
 export var first_left_timeout:float = 27.7
@@ -31,6 +31,8 @@ func _load_map(side):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameData.initialize()
+	GameData.connect("depleted", self, "end_level")
 	left_arrow.connect("score_increased",self,"increase_score")
 	left_arrow.connect("miss",self,"handle_miss")
 	right_arrow.connect("score_increased",self,"increase_score")
@@ -64,7 +66,7 @@ func increase_score(n):
 
 
 func handle_miss():
-	_decrease_health(10)
+	GameData.current -= 10
 	note_streak = 0
 	streak_label.text ="Streak: " + str(note_streak) 
 	$Player.handle_miss()
@@ -91,11 +93,8 @@ func _on_LeftNoteTimer_timeout():
 
 func _on_HealthTimer_timeout():
 	if GameData.current > 1:
-		_decrease_health(1)
+		GameData.current -= 1
 
-
-func _decrease_health(amount):
-	GameData.current -= amount
-	if GameData.current == 0:
-		GameStatus.set_score(score)
-		Global.goto_scene("res://Menu.tscn")
+func end_level():
+	GameStatus.set_score(score)
+	Global.goto_scene("res://Menu.tscn")
