@@ -31,7 +31,7 @@ func _load_map(side):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-  left_arrow.connect("score_increased",self,"increase_score")
+	left_arrow.connect("score_increased",self,"increase_score")
 	left_arrow.connect("miss",self,"handle_miss")
 	right_arrow.connect("score_increased",self,"increase_score")
 	right_arrow.connect("miss",self,"handle_miss")

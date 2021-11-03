@@ -19,7 +19,7 @@ func _unhandled_input(event):
 			_reset()
 		else:
 			emit_signal("miss")
-      miss_sfx.play()
+			miss_sfx.play()
 	if event.is_action_pressed(input):
 
 			frame = 1
