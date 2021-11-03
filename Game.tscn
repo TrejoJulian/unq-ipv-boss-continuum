@@ -10,7 +10,7 @@
 [ext_resource path="res://entities/arrow/BadArea.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/music/radioactive.mp3" type="AudioStream" id=9]
 [ext_resource path="res://gui/HealthBar.tscn" type="PackedScene" id=10]
-[ext_resource path="res://gui/GUILayer.gd" type="Script" id=11]
+[ext_resource path="res://gui/GUI.gd" type="Script" id=11]
 [ext_resource path="res://assets/fonts/bold_game_font_7.ttf" type="DynamicFontData" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -77,32 +77,39 @@ autoplay = true
 [node name="HealthTimer" type="Timer" parent="."]
 
 [node name="GUILayer" type="CanvasLayer" parent="."]
-script = ExtResource( 11 )
 
-[node name="HealthBar" parent="GUILayer" instance=ExtResource( 10 )]
+[node name="GUI" type="Control" parent="GUILayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" parent="GUILayer/GUI" instance=ExtResource( 10 )]
 margin_left = 32.0
 margin_top = 79.0
 margin_right = 336.0
 margin_bottom = 111.0
 
-[node name="Score" type="Label" parent="GUILayer"]
+[node name="Score" type="Label" parent="GUILayer/GUI"]
 margin_left = 828.0
 margin_top = 119.0
 margin_right = 975.0
 margin_bottom = 151.0
 custom_fonts/font = SubResource( 2 )
-text = "Streak: 0"
+text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Streak" type="Label" parent="GUILayer"]
+[node name="Streak" type="Label" parent="GUILayer/GUI"]
 margin_left = 829.0
 margin_top = 72.0
 margin_right = 960.0
 margin_bottom = 104.0
 custom_fonts/font = SubResource( 2 )
-text = "Score: 0"
+text = "Streak: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
