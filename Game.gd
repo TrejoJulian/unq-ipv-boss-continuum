@@ -82,7 +82,7 @@ func _on_LeftNoteTimer_timeout():
 
 
 func _on_HealthTimer_timeout():
-	if health.current > 1:
+	if GameData.current > 1:
 		_decrease_health(1)
 
 

@@ -8,10 +8,9 @@
 [ext_resource path="res://entities/note/Note.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game.gd" type="Script" id=7]
 [ext_resource path="res://entities/arrow/BadArea.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/music/Komiku_-_07_-_Run_against_the_universe.mp3" type="AudioStream" id=9]
+[ext_resource path="res://assets/music/radioactive.mp3" type="AudioStream" id=9]
 [ext_resource path="res://gui/HealthBar.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gui/GUILayer.gd" type="Script" id=11]
-[ext_resource path="res://assets/music/radioactive.mp3" type="AudioStream" id=9]
 [ext_resource path="res://assets/fonts/bold_game_font_7.ttf" type="DynamicFontData" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
