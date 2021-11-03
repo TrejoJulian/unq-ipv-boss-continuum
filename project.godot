@@ -28,6 +28,7 @@ config/icon="res://icon.png"
 
 Global="*res://globals/Global.gd"
 GameStatus="*res://globals/GameStatus.gd"
+GameData="*res://globals/GameData.gd"
 
 [display]
 

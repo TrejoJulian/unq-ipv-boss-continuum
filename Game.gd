@@ -1,13 +1,12 @@
-extends Node2D
+extends Node
 
 
 # Declare member variables here. Examples:
 var score = 0
 var note_streak = 0
 
-onready var health = $Health
-onready var score_label = $Score
-onready var streak_label = $Streak
+onready var score_label = $GUILayer/Score
+onready var streak_label = $GUILayer/Streak
 
 export var first_left_timeout:float = 27.7
 export var first_right_timeout:float = 27.9
@@ -49,7 +48,7 @@ func _ready():
 
 
 func increase_score(n):
-	health.current += 5
+	GameData.current += 5
 	note_streak += 1
 	score += n
 	score_label.text ="Score: " + str(score)
@@ -83,12 +82,12 @@ func _on_LeftNoteTimer_timeout():
 
 
 func _on_HealthTimer_timeout():
-	if health.current > 1:
+	if GameData.current > 1:
 		_decrease_health(1)
 
 
 func _decrease_health(amount):
-	health.current -= amount
-	if health.current == 0:
+	GameData.current -= amount
+	if GameData.current == 0:
 		GameStatus.set_score(score)
 		Global.goto_scene("res://Menu.tscn")
