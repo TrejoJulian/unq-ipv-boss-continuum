@@ -86,5 +86,7 @@ func _on_HealthTimer_timeout():
 		GameData.current -= 1
 
 func end_level():
+	self.right_timeouts = 0
+	self.left_timeouts = 0
 	GameStatus.set_score(GameData.score)
 	Global.goto_scene("res://Menu.tscn")
