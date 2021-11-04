@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entities/note/NoteSpawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/note/Note.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/roadmap/Roadmap.gd" type="Script" id=3]
+
+[node name="Roadmap" type="Node"]
+script = ExtResource( 3 )
+
+[node name="LeftSideNoteSpawner" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 480 )
+note_scene = ExtResource( 2 )
+note_direction = -1
+
+[node name="RightSideNoteSpawner" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1024, 480 )
+note_scene = ExtResource( 2 )
+
+[node name="RightNoteTimer" type="Timer" parent="."]
+
+[node name="LeftNoteTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="RightNoteTimer" to="." method="_on_RightNoteTimer_timeout"]
+[connection signal="timeout" from="LeftNoteTimer" to="." method="_on_LeftNoteTimer_timeout"]
