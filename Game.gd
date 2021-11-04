@@ -2,8 +2,8 @@ extends Node
 
 onready var right_arrow = $ArrowRight
 onready var left_arrow = $ArrowLeft
-export var first_left_timeout:float = 27.7
-export var first_right_timeout:float = 27.9
+export var first_left_timeout:float = 1
+export var first_right_timeout:float = 1.825
 
 # Import JSON Note Map
 var left_map = null
