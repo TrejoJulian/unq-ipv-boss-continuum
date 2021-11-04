@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/background/4127298.jpg" type="Texture" id=1]
 [ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=2]
@@ -9,19 +9,12 @@
 [ext_resource path="res://Game.gd" type="Script" id=7]
 [ext_resource path="res://entities/arrow/BadArea.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/music/radioactive.mp3" type="AudioStream" id=9]
-[ext_resource path="res://gui/HealthBar.tscn" type="PackedScene" id=10]
-[ext_resource path="res://gui/GUI.gd" type="Script" id=11]
-[ext_resource path="res://assets/fonts/bold_game_font_7.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://gui/GUILayer.tscn" type="PackedScene" id=10]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 1106.94, 685.887 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 32
-use_filter = true
-font_data = ExtResource( 12 )
 
 [node name="Game" type="Node"]
 script = ExtResource( 7 )
@@ -76,43 +69,7 @@ autoplay = true
 
 [node name="HealthTimer" type="Timer" parent="."]
 
-[node name="GUILayer" type="CanvasLayer" parent="."]
-
-[node name="GUI" type="Control" parent="GUILayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HealthBar" parent="GUILayer/GUI" instance=ExtResource( 10 )]
-margin_left = 32.0
-margin_top = 79.0
-margin_right = 336.0
-margin_bottom = 111.0
-
-[node name="Score" type="Label" parent="GUILayer/GUI"]
-margin_left = 828.0
-margin_top = 119.0
-margin_right = 975.0
-margin_bottom = 151.0
-custom_fonts/font = SubResource( 2 )
-text = "Score: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Streak" type="Label" parent="GUILayer/GUI"]
-margin_left = 829.0
-margin_top = 72.0
-margin_right = 960.0
-margin_bottom = 104.0
-custom_fonts/font = SubResource( 2 )
-text = "Streak: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="GUILayer" parent="." instance=ExtResource( 10 )]
 
 [connection signal="timeout" from="RightNoteTimer" to="." method="_on_RightNoteTimer_timeout"]
 [connection signal="timeout" from="LeftNoteTimer" to="." method="_on_LeftNoteTimer_timeout"]

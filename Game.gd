@@ -1,13 +1,5 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-var score = 0
-var note_streak = 0
-
-
-onready var score_label = $GUILayer/GUI/Score
-onready var streak_label = $GUILayer/GUI/Streak
 onready var right_arrow = $ArrowRight
 onready var left_arrow = $ArrowLeft
 export var first_left_timeout:float = 27.7
@@ -33,6 +25,7 @@ func _load_map(side):
 func _ready():
 	GameData.initialize()
 	GameData.connect("depleted", self, "end_level")
+	
 	left_arrow.connect("score_increased",self,"increase_score")
 	left_arrow.connect("miss",self,"handle_miss")
 	right_arrow.connect("score_increased",self,"increase_score")
@@ -59,16 +52,13 @@ func _ready():
 
 func increase_score(n):
 	GameData.current += 5
-	note_streak += 1
-	score += n
-	score_label.text ="Score: " + str(score)
-	streak_label.text ="Streak: " + str(note_streak)  
+	GameData.note_streak += 1
+	GameData.score += n  
 
 
 func handle_miss():
 	GameData.current -= 10
-	note_streak = 0
-	streak_label.text ="Streak: " + str(note_streak) 
+	GameData.note_streak = 0
 	$Player.handle_miss()
 
 
@@ -96,5 +86,5 @@ func _on_HealthTimer_timeout():
 		GameData.current -= 1
 
 func end_level():
-	GameStatus.set_score(score)
+	GameStatus.set_score(GameData.score)
 	Global.goto_scene("res://Menu.tscn")
