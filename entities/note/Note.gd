@@ -35,6 +35,7 @@ func initialize(pos, note_direction):
 
 
 func destroy(score):
+	$CollisionShape2D.disabled = true
 	$Timer.start()
 	hit = true
 	if score == 3:
