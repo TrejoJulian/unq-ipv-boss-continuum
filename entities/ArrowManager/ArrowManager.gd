@@ -1,6 +1,7 @@
 extends Node
 
-
+onready var bad_area_bottom = $BadAreaBottom
+onready var bad_area_top = $BadAreaTop
 onready var right_arrow = $ArrowRight
 onready var left_arrow = $ArrowLeft
 signal miss
@@ -12,6 +13,8 @@ func _ready():
 	left_arrow.connect("miss",self,"handle_miss")
 	right_arrow.connect("score_increased",self,"increase_score")
 	right_arrow.connect("miss",self,"handle_miss")
+	bad_area_bottom.connect("miss",self,"handle_miss")
+	bad_area_top.connect("miss",self,"handle_miss")
 
 
 func increase_score(n):
@@ -27,8 +30,8 @@ func handle_miss():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("up"):
-		right_arrow.position.y = $BadArea2.position.y
-		left_arrow.position.y = $BadArea2.position.y
+		right_arrow.position.y = bad_area_top.position.y
+		left_arrow.position.y = bad_area_top.position.y
 	if event.is_action_pressed("down"):
-		right_arrow.position.y = $BadArea.position.y
-		left_arrow.position.y = $BadArea.position.y
+		right_arrow.position.y = bad_area_bottom.position.y
+		left_arrow.position.y = bad_area_bottom.position.y
