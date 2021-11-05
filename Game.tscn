@@ -15,6 +15,10 @@ region = Rect2( 0, 0, 1106.94, 685.887 )
 
 [node name="Game" type="Node"]
 script = ExtResource( 7 )
+map_path = "res://assets/map.json"
+left_side_start_delay = 1.0
+right_side_start_delay = 1.825
+track = ExtResource( 9 )
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -100
@@ -39,8 +43,6 @@ scale = Vector2( 1.3, 1.3 )
 [node name="Roadmap" parent="." instance=ExtResource( 4 )]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-autoplay = true
 
 [node name="HealthTimer" type="Timer" parent="."]
 wait_time = 0.33
