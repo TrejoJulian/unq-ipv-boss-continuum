@@ -1,6 +1,8 @@
 extends Area2D
 
+signal miss
+
 func _on_BadArea_area_entered(area):
 	if area.is_in_group("note"):
 		area.bad_area_entered()
-		get_parent().handle_miss()
+		emit_signal("miss")

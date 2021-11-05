@@ -30,8 +30,8 @@ scale = Vector2( 3, 3 )
 frames = ExtResource( 5 )
 input = "right_arrow_pressed"
 
-[node name="BadArea" parent="." instance=ExtResource( 4 )]
+[node name="BadAreaBottom" parent="." instance=ExtResource( 4 )]
 position = Vector2( 512, 479.109 )
 
-[node name="BadArea2" parent="." instance=ExtResource( 4 )]
+[node name="BadAreaTop" parent="." instance=ExtResource( 4 )]
 position = Vector2( 512, 290 )
