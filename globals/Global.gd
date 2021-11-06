@@ -1,6 +1,6 @@
 extends Node
 
-
+# var value 
 var current_scene = null
 
 func _ready():
@@ -21,7 +21,7 @@ func goto_scene(path):
 	call_deferred("_deferred_goto_scene", path)
 
 
-func _deferred_goto_scene(path):
+func _deferred_goto_scene(path, value=null):
 	# It is now safe to remove the current scene
 	current_scene.free()
 

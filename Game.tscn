@@ -24,13 +24,12 @@ track = ExtResource( 9 )
 layer = -100
 
 [node name="TextureRect" type="TextureRect" parent="BackgroundLayer"]
-anchor_left = -0.00579488
-anchor_top = -0.00933977
-anchor_right = 3.9239
-anchor_bottom = 4.324
+anchor_top = -0.00529134
+anchor_right = 1.0
+anchor_bottom = 0.994709
 texture = SubResource( 1 )
+expand = true
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": true
 }
 
