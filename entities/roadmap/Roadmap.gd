@@ -20,10 +20,8 @@ var left_timeouts = 0
 var right_timeouts = 0
 
 
-func initialize(incoming_map_path:String, left_start_delay:float, right_start_delay:float):
+func initialize(incoming_map_path:String):
 	print("pase")
-	first_left_timeout = left_start_delay
-	first_right_timeout= right_start_delay
 	map_path = incoming_map_path
 	_start()
 
@@ -37,17 +35,19 @@ func _load_map(side):
 	map.close()
 	
 	return json_result[side]
-	
-
 
 
 func _start():
 	self.right_timeouts = 0
 	self.left_timeouts = 0
-	self.left_map = self._load_map("left")
+	
 	self.right_map = self._load_map("right")
-	right_note_timer.wait_time = first_right_timeout
-	left_note_timer.wait_time = first_left_timeout
+	self.left_map = self._load_map("left")
+	
+	right_note_timer.wait_time = right_map[right_timeouts]
+	self.right_timeouts += 1
+	left_note_timer.wait_time = left_map[left_timeouts]
+	self.left_timeouts += 1
 	
 	right_note_timer.start()
 	left_note_timer.start()
@@ -59,6 +59,7 @@ func _start():
 	
 	print(self.left_map)
 	print(self.right_map)
+
 
 func _on_RightNoteTimer_timeout():
 	right_note_spawner.spawn()
