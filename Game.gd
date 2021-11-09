@@ -5,6 +5,7 @@ export var track:AudioStream
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameData.initialize()
+	GameStatus.initialize()
 	GameData.connect("depleted", self, "end_level")
 	$ArrowManager.connect("miss", $Player, "handle_miss")
 	$Roadmap.initialize(map_path)

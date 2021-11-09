@@ -21,11 +21,13 @@ func increase_score(n):
 	GameData.current += 5
 	GameData.note_streak += 1
 	GameData.score += n  
+	GameStatus.count_note()
 
 
 func handle_miss():
 	GameData.current -= 10
 	GameData.note_streak = 0
+	GameStatus.count_note()
 	emit_signal("miss")
 
 func _unhandled_input(event):
