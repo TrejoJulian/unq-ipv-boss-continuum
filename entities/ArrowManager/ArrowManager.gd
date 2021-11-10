@@ -4,14 +4,17 @@ onready var bad_area_bottom = $BadAreaBottom
 onready var bad_area_top = $BadAreaTop
 onready var right_arrow = $ArrowRight
 onready var left_arrow = $ArrowLeft
+onready var feedback_text = $FeedbackText
 signal miss
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	left_arrow.connect("score_increased",self,"increase_score")
+	left_arrow.connect("score_increased", feedback_text, "on_left_arrow_button_pressed")
 	left_arrow.connect("miss",self,"handle_miss")
 	right_arrow.connect("score_increased",self,"increase_score")
+	right_arrow.connect("score_increased", feedback_text, "on_right_arrow_button_pressed")
 	right_arrow.connect("miss",self,"handle_miss")
 	bad_area_bottom.connect("miss",self,"handle_miss")
 	bad_area_top.connect("miss",self,"handle_miss")
