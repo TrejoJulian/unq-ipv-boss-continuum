@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1orange.png-3e417209e0f35c801898f5352868698b.stex"
+path="res://.import/2orange.png-a87feaa969fa426f8d68cdd14b8a03c4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/arrows2/1orange.png"
-dest_files=[ "res://.import/1orange.png-3e417209e0f35c801898f5352868698b.stex" ]
+source_file="res://assets/arrows/2orange.png"
+dest_files=[ "res://.import/2orange.png-a87feaa969fa426f8d68cdd14b8a03c4.stex" ]
 
 [params]
 

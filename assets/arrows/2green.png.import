@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arrow_button_right2.png-a9f998b453689e555a4367dd6677f75c.stex"
+path="res://.import/2green.png-0a039b53d95fba5acc34c5c3d826aa2b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/arrows/right/arrow_button_right2.png"
-dest_files=[ "res://.import/arrow_button_right2.png-a9f998b453689e555a4367dd6677f75c.stex" ]
+source_file="res://assets/arrows/2green.png"
+dest_files=[ "res://.import/2green.png-0a039b53d95fba5acc34c5c3d826aa2b.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

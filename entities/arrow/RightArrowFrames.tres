@@ -1,9 +1,9 @@
 [gd_resource type="SpriteFrames" load_steps=5 format=2]
 
-[ext_resource path="res://assets/arrows2/2blue.png" type="Texture" id=1]
-[ext_resource path="res://assets/arrows2/3blue.png" type="Texture" id=2]
-[ext_resource path="res://assets/arrows2/2orange.png" type="Texture" id=3]
-[ext_resource path="res://assets/arrows2/3orange.png" type="Texture" id=4]
+[ext_resource path="res://assets/arrows/2blue.png" type="Texture" id=1]
+[ext_resource path="res://assets/arrows/3blue.png" type="Texture" id=2]
+[ext_resource path="res://assets/arrows/2orange.png" type="Texture" id=3]
+[ext_resource path="res://assets/arrows/3orange.png" type="Texture" id=4]
 
 [resource]
 resource_name = "right_arrow"

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/3red.png-10572c6622866bdfc7a09ce1ea568fb9.stex"
+path="res://.import/3red.png-a1145c7cfe3f3aceb5bae8666b41bf75.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/arrows2/3red.png"
-dest_files=[ "res://.import/3red.png-10572c6622866bdfc7a09ce1ea568fb9.stex" ]
+source_file="res://assets/arrows/3red.png"
+dest_files=[ "res://.import/3red.png-a1145c7cfe3f3aceb5bae8666b41bf75.stex" ]
 
 [params]
 
