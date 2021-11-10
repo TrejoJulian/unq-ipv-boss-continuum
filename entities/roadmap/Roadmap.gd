@@ -9,8 +9,6 @@ onready var right_note_spawner = $RightSideNoteSpawner
 onready var right_note_timer = $RightNoteTimer
 onready var left_note_timer = $LeftNoteTimer
 
-var first_left_timeout:float 
-var first_right_timeout:float
 var map_path:String
 
 # Import JSON Note Map
@@ -73,10 +71,16 @@ func _on_LeftNoteTimer_timeout():
 	if(len(left_map) - 1 < self.left_timeouts):
 		left_note_timer.stop()
 
+
 func _move_spawners_to_the_top():
 	left_note_spawner.position.y = top_spawner_height
 	right_note_spawner.position.y = top_spawner_height
+	left_note_spawner.set_is_up(true)
+	right_note_spawner.set_is_up(true)
+
 
 func _move_spawners_to_the_bottom():
 	left_note_spawner.position.y = bottom_spanwer_height
 	right_note_spawner.position.y = top_spawner_height
+	left_note_spawner.set_is_up(false)
+	right_note_spawner.set_is_up(false)
