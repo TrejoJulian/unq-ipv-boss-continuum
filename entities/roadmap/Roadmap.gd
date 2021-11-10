@@ -2,12 +2,13 @@ extends Node
 
 
 export var top_spawner_height:float = 290
-export var bottom_spanwer_height:float = 480
+export var bottom_spawner_height:float = 480
 
 onready var left_note_spawner = $LeftSideNoteSpawner
 onready var right_note_spawner = $RightSideNoteSpawner
 onready var right_note_timer = $RightNoteTimer
 onready var left_note_timer = $LeftNoteTimer
+onready var moving_timer = $MovingTimer
 
 var map_path:String
 
@@ -16,6 +17,7 @@ var left_map = null
 var right_map = null
 var left_timeouts = 0
 var right_timeouts = 0
+var moving_timeouts = 0
 
 
 func initialize(incoming_map_path:String):
@@ -50,6 +52,9 @@ func _start():
 	right_note_timer.start()
 	left_note_timer.start()
 	
+	moving_timer.wait_time = 5
+	moving_timer.start()
+	
 	right_note_timer.wait_time = right_map[right_timeouts]
 	self.right_timeouts += 1
 	left_note_timer.wait_time = left_map[left_timeouts]
@@ -80,7 +85,15 @@ func _move_spawners_to_the_top():
 
 
 func _move_spawners_to_the_bottom():
-	left_note_spawner.position.y = bottom_spanwer_height
-	right_note_spawner.position.y = top_spawner_height
+	left_note_spawner.position.y = bottom_spawner_height
+	right_note_spawner.position.y = bottom_spawner_height
 	left_note_spawner.set_is_up(false)
 	right_note_spawner.set_is_up(false)
+
+
+func _on_MovingTimer_timeout():
+	self.moving_timeouts += 1
+	if(moving_timeouts % 2 == 0):
+		_move_spawners_to_the_bottom()
+	else:
+		_move_spawners_to_the_top()
