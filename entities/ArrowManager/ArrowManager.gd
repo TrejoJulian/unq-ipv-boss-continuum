@@ -37,6 +37,10 @@ func _unhandled_input(event):
 	if event.is_action_pressed("up"):
 		right_arrow.position.y = bad_area_top.position.y
 		left_arrow.position.y = bad_area_top.position.y
+		right_arrow.set_is_up(true)
+		left_arrow.set_is_up(true)
 	if event.is_action_pressed("down"):
 		right_arrow.position.y = bad_area_bottom.position.y
 		left_arrow.position.y = bad_area_bottom.position.y
+		right_arrow.set_is_up(false)
+		left_arrow.set_is_up(false)

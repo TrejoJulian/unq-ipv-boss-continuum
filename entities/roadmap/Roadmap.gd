@@ -56,9 +56,6 @@ func _start():
 	self.right_timeouts += 1
 	left_note_timer.wait_time = left_map[left_timeouts]
 	self.left_timeouts += 1
-	
-	print(self.left_map)
-	print(self.right_map)
 
 
 func _on_RightNoteTimer_timeout():
@@ -67,7 +64,6 @@ func _on_RightNoteTimer_timeout():
 	self.right_timeouts += 1
 	if(len(right_map) - 1 < self.right_timeouts):
 		right_note_timer.stop()
-		print("right stop")
 
 
 func _on_LeftNoteTimer_timeout():
@@ -76,7 +72,6 @@ func _on_LeftNoteTimer_timeout():
 	self.left_timeouts += 1
 	if(len(left_map) - 1 < self.left_timeouts):
 		left_note_timer.stop()
-		print("left stop")
 
 func _move_spawners_to_the_top():
 	left_note_spawner.position.y = top_spawner_height
