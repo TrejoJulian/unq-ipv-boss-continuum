@@ -15,7 +15,6 @@ region = Rect2( 0, 0, 1106.94, 685.887 )
 
 [node name="Game" type="Node"]
 script = ExtResource( 7 )
-map_path = "res://assets/map.json"
 track = ExtResource( 9 )
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]

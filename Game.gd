@@ -8,8 +8,8 @@ func _ready():
 	GameStatus.initialize()
 	GameData.connect("depleted", self, "end_level")
 	$ArrowManager.connect("miss", $Player, "handle_miss")
-	$Roadmap.initialize(map_path)
-	$AudioStreamPlayer.stream = track
+	$Roadmap.initialize(Global.current_level.map_path)
+	$AudioStreamPlayer.stream = load(Global.current_level.track)
 	$AudioStreamPlayer.play()
 
 func _on_HealthTimer_timeout():
@@ -18,4 +18,4 @@ func _on_HealthTimer_timeout():
 
 func end_level():
 	GameStatus.set_score(GameData.score)
-	Global.goto_scene("res://Menu.tscn")
+	Global.goto_scene("res://menu/Menu.tscn")
