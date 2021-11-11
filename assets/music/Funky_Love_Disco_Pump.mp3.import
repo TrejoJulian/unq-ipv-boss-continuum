@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Funky_Love_Disco_Pump.mp3-4a294d1fa111f1745c4e3c224edb788e.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Funky_Love_Disco_Pump.mp3"
+dest_files=[ "res://.import/Funky_Love_Disco_Pump.mp3-4a294d1fa111f1745c4e3c224edb788e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

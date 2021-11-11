@@ -2,11 +2,29 @@ extends Node
 
 # var value 
 var current_scene = null
+var levels = {
+		1: {
+		"map_path": "res://assets/map.json",
+		"track": "res://assets/music/radioactive.mp3",
+		"sprite": "res://assets/character/Robot/PNG/Parts HD/head.png"
+		},
+		2: {
+		"map_path": "res://assets/map.json",
+		"track": "res://assets/music/radioactive.mp3",
+		"sprite": "res://assets/character/Robot/PNG/Parts HD/headFocus.png"
+		},
+		3: {
+		"map_path": "res://assets/map.json",
+		"track": "res://assets/music/radioactive.mp3",
+		"sprite": "res://assets/character/Robot/PNG/Parts HD/headShock.png"
+		}
+	}
+var current_level
 
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
-
+	
 
 func goto_scene(path):
 	# This function will usually be called from a signal callback,
