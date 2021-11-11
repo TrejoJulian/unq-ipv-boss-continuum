@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 onready var main_menu: Control = $VBoxContainer/MainMenu
 onready var levels_menu: Control = $VBoxContainer/LevelsMenu
