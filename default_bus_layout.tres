@@ -1,4 +1,46 @@
-[gd_resource type="AudioBusLayout" format=2]
+[gd_resource type="AudioBusLayout" load_steps=7 format=2]
+
+[sub_resource type="AudioEffectLowPassFilter" id=3]
+resource_name = "LowPassFilter"
+
+[sub_resource type="AudioEffectRecord" id=5]
+resource_name = "Record"
+
+[sub_resource type="AudioEffectStereoEnhance" id=6]
+resource_name = "StereoEnhance"
+
+[sub_resource type="AudioEffectChorus" id=7]
+resource_name = "Chorus"
+
+[sub_resource type="AudioEffectDistortion" id=8]
+resource_name = "Distortion"
+
+[sub_resource type="AudioEffectEQ" id=9]
+resource_name = "EQ"
 
 [resource]
 bus/0/volume_db = -7.5114
+bus/1/name = "note_sfx"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -4.003
+bus/1/send = "Master"
+bus/1/effect/0/effect = SubResource( 3 )
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource( 5 )
+bus/1/effect/1/enabled = true
+bus/1/effect/2/effect = SubResource( 6 )
+bus/1/effect/2/enabled = true
+bus/2/name = "electric_discharge"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -5.04224
+bus/2/send = "Master"
+bus/2/effect/0/effect = SubResource( 7 )
+bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource( 8 )
+bus/2/effect/1/enabled = true
+bus/2/effect/2/effect = SubResource( 9 )
+bus/2/effect/2/enabled = true

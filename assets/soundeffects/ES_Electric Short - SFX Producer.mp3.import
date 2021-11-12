@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ES_Electric Short - SFX Producer.mp3-fb321733329fc56dc210278ee0cb1f82.mp3str"
+
+[deps]
+
+source_file="res://assets/soundeffects/ES_Electric Short - SFX Producer.mp3"
+dest_files=[ "res://.import/ES_Electric Short - SFX Producer.mp3-fb321733329fc56dc210278ee0cb1f82.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -5,7 +5,6 @@ signal miss
 var current_note:Note = null
 var score_counter: int = 0
 
-onready var miss_sfx = $MissNote
 
 export var input:String = "left_arrow_pressed"
 
@@ -19,7 +18,6 @@ func _unhandled_input(event):
 			_reset()
 		else:
 			emit_signal("miss")
-			miss_sfx.play()
 	if event.is_action_pressed(input):
 
 			frame = 1
