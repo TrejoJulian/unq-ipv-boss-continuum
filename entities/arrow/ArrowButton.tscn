@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entities/arrow/ArrowButton.gd" type="Script" id=2]
-[ext_resource path="res://assets/music/miss.mp3" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 resource_name = "left_arrow"
@@ -38,9 +37,6 @@ shape = SubResource( 4 )
 
 [node name="PushTimer" type="Timer" parent="."]
 wait_time = 0.2
-
-[node name="MissNote" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
 
 [connection signal="area_entered" from="PerfectArea" to="." method="_on_PerfectArea_area_entered"]
 [connection signal="area_exited" from="PerfectArea" to="." method="_on_PerfectArea_area_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/arrows/1red.png" type="Texture" id=1]
 [ext_resource path="res://assets/arrows/3red.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://entities/ArrowManager/FeedbackText.gd" type="Script" id=7]
 [ext_resource path="res://assets/arrows/2green.png" type="Texture" id=8]
 [ext_resource path="res://assets/arrows/3green.png" type="Texture" id=9]
+[ext_resource path="res://assets/sfx/ES_Electric Short - SFX Producer.mp3" type="AudioStream" id=10]
+[ext_resource path="res://assets/sfx/note_sfx.wav" type="AudioStream" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 resource_name = "left_arrow"
@@ -80,6 +82,14 @@ one_shot = true
 [node name="LeftTextTimer" type="Timer" parent="FeedbackText"]
 wait_time = 0.5
 one_shot = true
+
+[node name="NoteSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+bus = "NoteSfx"
+
+[node name="DischargeSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+bus = "ElectricDischarge"
 
 [connection signal="timeout" from="FeedbackText/RightTextTimer" to="FeedbackText" method="_on_RightTextTimer_timeout"]
 [connection signal="timeout" from="FeedbackText/LeftTextTimer" to="FeedbackText" method="_on_LeftTextTimer_timeout"]
