@@ -4,6 +4,7 @@ signal score_increased(score)
 signal miss
 var current_note:Note = null
 var score_counter: int = 0
+var is_up = false
 
 
 export var input:String = "left_arrow_pressed"
@@ -19,10 +20,20 @@ func _unhandled_input(event):
 		else:
 			emit_signal("miss")
 	if event.is_action_pressed(input):
-
-			frame = 1
+			if(self.is_up):
+				frame = 3
+			else:
+				frame = 1
 	elif event.is_action_released(input):
 		$PushTimer.start()
+
+
+func set_is_up(b):
+	self.is_up = b
+	if(self.is_up):
+		set_frame(2)
+	else:
+		set_frame(0)
 
 
 func _reset():
@@ -56,12 +67,13 @@ func _on_OkayArea_area_entered(area):
 		current_note = area
 
 
-
 func _on_OkayArea_area_exited(area):
 	if area.is_in_group("note"):
 		_reset()
 
 
-
 func _on_PushTimer_timeout():
-	frame = 0
+	if(self.is_up):
+		frame = 2
+	else:
+		frame = 0

@@ -1,12 +1,14 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=2]
+[gd_resource type="SpriteFrames" load_steps=5 format=2]
 
-[ext_resource path="res://assets/arrows/right/arrow_button_right2.png" type="Texture" id=1]
-[ext_resource path="res://assets/arrows/right/arrow_button_right1.png" type="Texture" id=2]
+[ext_resource path="res://assets/arrows/2blue.png" type="Texture" id=1]
+[ext_resource path="res://assets/arrows/3blue.png" type="Texture" id=2]
+[ext_resource path="res://assets/arrows/2orange.png" type="Texture" id=3]
+[ext_resource path="res://assets/arrows/3orange.png" type="Texture" id=4]
 
 [resource]
 resource_name = "right_arrow"
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
