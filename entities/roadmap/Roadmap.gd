@@ -53,7 +53,7 @@ func _start():
 	left_note_timer.start()
 	
 	moving_timer.wait_time = 5
-	moving_timer.start()
+	#moving_timer.start()
 	
 	right_note_timer.wait_time = right_map[right_timeouts]
 	self.right_timeouts += 1
