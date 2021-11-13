@@ -33,12 +33,10 @@ func initialize(pos, note_direction, is_up):
 
 
 func destroy(score):
-	$Timer.start()
 	hit = true
+	queue_free()
 
 
 func bad_area_entered():
 	queue_free()
 
-func _on_Timer_timeout():
-	queue_free()
