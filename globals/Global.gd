@@ -4,19 +4,19 @@ extends Node
 var current_scene = null
 var levels = {
 		1: {
-		"map_path": "res://assets/map.json",
-		"track": "res://assets/music/radioactive.mp3",
-		"sprite": "res://assets/character/Robot/PNG/Parts HD/head.png"
+			"map_path": "res://assets/tuto.json",
+			"track": "res://assets/music/Komiku_-_07_-_Run_against_the_universe.mp3",
+			"sprite": "res://assets/character/Robot/PNG/Parts HD/head.png"
 		},
 		2: {
-		"map_path": "res://assets/map.json",
-		"track": "res://assets/music/radioactive.mp3",
-		"sprite": "res://assets/character/Robot/PNG/Parts HD/headFocus.png"
+			"map_path": "res://assets/tuto.json",
+			"track": "res://assets/music/Komiku_-_07_-_Run_against_the_universe.mp3",
+			"sprite": "res://assets/character/Robot/PNG/Parts HD/headFocus.png"
 		},
 		3: {
-		"map_path": "res://assets/map.json",
-		"track": "res://assets/music/radioactive.mp3",
-		"sprite": "res://assets/character/Robot/PNG/Parts HD/headShock.png"
+			"map_path": "res://assets/radioactive.json",
+			"track": "res://assets/music/radioactive.mp3",
+			"sprite": "res://assets/character/Robot/PNG/Parts HD/headShock.png"
 		}
 	}
 var current_level
