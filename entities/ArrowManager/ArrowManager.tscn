@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/arrows/1red.png" type="Texture" id=1]
 [ext_resource path="res://assets/arrows/3red.png" type="Texture" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://assets/arrows/3green.png" type="Texture" id=9]
 [ext_resource path="res://assets/sfx/ES_Electric Short - SFX Producer.mp3" type="AudioStream" id=10]
 [ext_resource path="res://assets/sfx/note_sfx.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/arrows/3orange.png" type="Texture" id=12]
+[ext_resource path="res://assets/arrows/3blue.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 resource_name = "left_arrow"
@@ -90,6 +92,32 @@ bus = "NoteSfx"
 [node name="DischargeSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 bus = "ElectricDischarge"
+
+[node name="BottomLeftPhantomArrow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.34902 )
+position = Vector2( 350, 480 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+
+[node name="BottomRightPhantomArrow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.34902 )
+position = Vector2( 674, 480 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+flip_h = true
+
+[node name="TopLeftPhantomArrow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.34902 )
+position = Vector2( 350, 290 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 9 )
+
+[node name="TopRightPhantomArrow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.34902 )
+position = Vector2( 674, 290 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+flip_h = true
 
 [connection signal="timeout" from="FeedbackText/RightTextTimer" to="FeedbackText" method="_on_RightTextTimer_timeout"]
 [connection signal="timeout" from="FeedbackText/LeftTextTimer" to="FeedbackText" method="_on_LeftTextTimer_timeout"]
