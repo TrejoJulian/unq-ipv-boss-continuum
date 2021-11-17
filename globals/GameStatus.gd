@@ -5,26 +5,28 @@ var note_count:int    = 0  # Esto se podria setear de afuera tambien. De momento
 export var perfect_note_score = 3
 var won: bool = false
 
+enum {S, A, B, C}
+
+
 func initialize():
 	score    = 0
 	note_count = 0
-	var won = false
-	
+	won = true
 
 func set_score(s):
 	score = s
 
 func rank():
-	var rank = ""
+	var rank
 	var mastery_level =  float(score) / _max_possible_score()
 	if (mastery_level >= 0.9):
-		rank = "S"
+		rank = S
 	elif (mastery_level >= 0.8):
-		rank = "A"
+		rank = A
 	elif (mastery_level >= 0.7):
-		rank = "B"
+		rank = B
 	else:
-		rank = "C"
+		rank = C
 	return rank
 
 func count_note():

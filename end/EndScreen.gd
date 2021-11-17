@@ -4,16 +4,28 @@ onready var score_screen = $ScoreScreen
 onready var gameover_screen = $GameOverScreen
 onready var end_background = $AudioStreamPlayer
 
+onready var score = $ScoreScreen/HBoxContainer/VBoxContainer/Score
+onready var rank = $ScoreScreen/HBoxContainer/VBoxContainer2/Rank
+onready var medal = $ScoreScreen/HBoxContainer/VBoxContainer2/Medal
+
+export (Array, String) var medals
+export (Array, String) var ranks
+var score_value : int
+
 func _ready():
+	end_background.stream = load(Global.current_level.track)
 	if GameStatus.won:
 		score_screen.show()
 		gameover_screen.hide()
+		score.text = "Score: %s" % GameStatus.score
+		rank.text = "Rank\n%s" % ranks[GameStatus.rank()]
+		medal.texture = load(medals[GameStatus.rank()])
+		end_background.pitch_scale = 1.2
 	else:
 		score_screen.hide()
 		gameover_screen.show()
-		end_background.stream = load(Global.current_level.track)
 		end_background.pitch_scale = 0.7
-		end_background.play()
+	end_background.play()	
 
 
 func _on_Restart_pressed():
