@@ -8,7 +8,8 @@ onready var feedback_text = $FeedbackText
 onready var note_sfx = $NoteSfx
 onready var discharge_sfx = $DischargeSfx
 signal miss
-
+signal go_up
+signal go_down
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,11 +44,13 @@ func _unhandled_input(event):
 		left_arrow.position.y = bad_area_top.position.y
 		right_arrow.set_is_up(true)
 		left_arrow.set_is_up(true)
+		emit_signal("go_up")
 	if event.is_action_pressed("down"):
 		right_arrow.position.y = bad_area_bottom.position.y
 		left_arrow.position.y = bad_area_bottom.position.y
 		right_arrow.set_is_up(false)
 		left_arrow.set_is_up(false)
+		emit_signal("go_down")
 
 func play_note_audio():
 	note_sfx.play()
