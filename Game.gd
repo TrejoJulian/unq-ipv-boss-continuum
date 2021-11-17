@@ -1,6 +1,5 @@
 extends Node
-export var map_path:String
-export var track:AudioStream
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,4 +17,4 @@ func _on_HealthTimer_timeout():
 
 func end_level():
 	GameStatus.set_score(GameData.score)
-	Global.goto_scene("res://menu/Menu.tscn")
+	Global.goto_scene("res://end/EndScreen.tscn")
