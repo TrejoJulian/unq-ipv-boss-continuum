@@ -7,6 +7,8 @@ func _ready():
 	GameStatus.initialize()
 	GameData.connect("depleted", self, "end_level")
 	$ArrowManager.connect("miss", $Player, "handle_miss")
+	$ArrowManager.connect("go_up", $Player, "jump_up")
+	$ArrowManager.connect("go_down", $Player, "jump_down")
 	$Roadmap.initialize(Global.current_level.map_path)
 	$AudioStreamPlayer.stream = load(Global.current_level.track)
 	$AudioStreamPlayer.play()
