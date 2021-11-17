@@ -2,6 +2,7 @@ extends Node
 export var map_path:String
 export var track:AudioStream
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameData.initialize()
@@ -12,10 +13,17 @@ func _ready():
 	$AudioStreamPlayer.stream = load(Global.current_level.track)
 	$AudioStreamPlayer.play()
 
+
 func _on_HealthTimer_timeout():
 	if GameData.current > 1:
 		GameData.current -= 1
 
+
 func end_level():
+	GameStatus.set_score(GameData.score)
+	Global.goto_scene("res://menu/Menu.tscn")
+
+
+func _on_AudioStreamPlayer_finished():
 	GameStatus.set_score(GameData.score)
 	Global.goto_scene("res://menu/Menu.tscn")

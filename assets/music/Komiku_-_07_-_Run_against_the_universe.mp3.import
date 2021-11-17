@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Komiku_-_07_-_Run_against_the_universe.mp3-12d500ed3
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

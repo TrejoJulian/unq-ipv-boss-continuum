@@ -11,5 +11,5 @@ dest_files=[ "res://.import/radioactive.mp3-a3b70f841172c215509bd7fc171ae7ca.mp3
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
