@@ -13,11 +13,17 @@ func _ready():
 	$AudioStreamPlayer.stream = load(Global.current_level.track)
 	$AudioStreamPlayer.play()
 
+
 func _on_HealthTimer_timeout():
 	if GameData.current > 1:
 		GameData.current -= 1
+
 
 func end_level():
 	GameStatus.set_score(GameData.score)
 	Global.update_level_max_score(GameData.score)
 	Global.goto_scene("res://end/EndScreen.tscn")
+
+
+func _on_AudioStreamPlayer_finished():
+	self.end_level()

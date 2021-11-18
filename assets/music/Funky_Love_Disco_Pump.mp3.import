@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Funky_Love_Disco_Pump.mp3-4a294d1fa111f1745c4e3c224e
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

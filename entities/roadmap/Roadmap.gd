@@ -15,6 +15,7 @@ var map_path:String
 # Import JSON Note Map
 var left_map = null
 var right_map = null
+var moving_map = null
 var left_timeouts = 0
 var right_timeouts = 0
 var moving_timeouts = 0
@@ -43,22 +44,25 @@ func _start():
 	
 	self.right_map = self._load_map("right")
 	self.left_map = self._load_map("left")
+	self.moving_map = self._load_map("move")
 	
 	right_note_timer.wait_time = right_map[right_timeouts]
 	self.right_timeouts += 1
 	left_note_timer.wait_time = left_map[left_timeouts]
 	self.left_timeouts += 1
+	moving_timer.wait_time = moving_map[moving_timeouts]
+	self.moving_timeouts += 1
 	
 	right_note_timer.start()
 	left_note_timer.start()
-	
-	moving_timer.wait_time = 5
 	moving_timer.start()
 	
 	right_note_timer.wait_time = right_map[right_timeouts]
 	self.right_timeouts += 1
 	left_note_timer.wait_time = left_map[left_timeouts]
 	self.left_timeouts += 1
+	moving_timer.wait_time = moving_map[moving_timeouts]
+	self.moving_timeouts += 1
 
 
 func _on_RightNoteTimer_timeout():
@@ -77,6 +81,17 @@ func _on_LeftNoteTimer_timeout():
 		left_note_timer.stop()
 
 
+func _on_MovingTimer_timeout():
+	if(moving_timeouts % 2 != 0):
+		self._move_spawners_to_the_bottom()
+	else:
+		self._move_spawners_to_the_top()
+	moving_timer.wait_time = moving_map[moving_timeouts]
+	self.moving_timeouts += 1
+	if(len(moving_map) - 1 < self.moving_timeouts):
+		moving_timer.stop()
+
+
 func _move_spawners_to_the_top():
 	left_note_spawner.position.y = top_spawner_height
 	right_note_spawner.position.y = top_spawner_height
@@ -89,11 +104,3 @@ func _move_spawners_to_the_bottom():
 	right_note_spawner.position.y = bottom_spawner_height
 	left_note_spawner.set_is_up(false)
 	right_note_spawner.set_is_up(false)
-
-
-func _on_MovingTimer_timeout():
-	self.moving_timeouts += 1
-	if(moving_timeouts % 2 == 0):
-		_move_spawners_to_the_bottom()
-	else:
-		_move_spawners_to_the_top()
