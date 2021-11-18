@@ -26,6 +26,32 @@ animations = [ {
 [node name="ArrowManager" type="Node"]
 script = ExtResource( 6 )
 
+[node name="BottomLeftPhantomArrow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.666667 )
+position = Vector2( 350, 480 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+
+[node name="BottomRightPhantomArrow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.666667 )
+position = Vector2( 674, 480 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+flip_h = true
+
+[node name="TopRightPhantomArrow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.666667 )
+position = Vector2( 674, 290 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+flip_h = true
+
+[node name="TopLeftPhantomArrow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.666667 )
+position = Vector2( 350, 290 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 9 )
+
 [node name="ArrowLeft" parent="." instance=ExtResource( 3 )]
 position = Vector2( 350, 480 )
 scale = Vector2( 3, 3 )
@@ -92,32 +118,6 @@ bus = "NoteSfx"
 [node name="DischargeSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 bus = "ElectricDischarge"
-
-[node name="BottomLeftPhantomArrow" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.34902 )
-position = Vector2( 350, 480 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 2 )
-
-[node name="BottomRightPhantomArrow" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.34902 )
-position = Vector2( 674, 480 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 12 )
-flip_h = true
-
-[node name="TopLeftPhantomArrow" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.34902 )
-position = Vector2( 350, 290 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 9 )
-
-[node name="TopRightPhantomArrow" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.34902 )
-position = Vector2( 674, 290 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 13 )
-flip_h = true
 
 [connection signal="timeout" from="FeedbackText/RightTextTimer" to="FeedbackText" method="_on_RightTextTimer_timeout"]
 [connection signal="timeout" from="FeedbackText/LeftTextTimer" to="FeedbackText" method="_on_LeftTextTimer_timeout"]
