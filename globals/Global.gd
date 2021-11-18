@@ -6,17 +6,23 @@ var levels = {
 		1: {
 			"map_path": "res://assets/tuto.json",
 			"track": "res://assets/music/Komiku_-_07_-_Run_against_the_universe.mp3",
-			"sprite": "res://assets/character/Robot/PNG/Parts HD/head.png"
+			"sprite": "res://assets/character/Robot/PNG/Parts HD/head.png",
+			"name": "Tutorial",
+			"max_score": 0,
 		},
 		2: {
 			"map_path": "res://assets/tuto.json",
 			"track": "res://assets/music/Komiku_-_07_-_Run_against_the_universe.mp3",
-			"sprite": "res://assets/character/Robot/PNG/Parts HD/headFocus.png"
+			"sprite": "res://assets/character/Robot/PNG/Parts HD/headFocus.png",
+			"name": "Robot dance",
+			"max_score": 0,
 		},
 		3: {
 			"map_path": "res://assets/radioactive.json",
 			"track": "res://assets/music/radioactive.mp3",
-			"sprite": "res://assets/character/Robot/PNG/Parts HD/headShock.png"
+			"sprite": "res://assets/character/Robot/PNG/Parts HD/headShock.png",
+			"name": "Radioactive",
+			"max_score": 0,
 		}
 	}
 var current_level
@@ -25,6 +31,8 @@ func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
 	
+func update_level_max_score(score):
+	current_level.max_score = max(current_level.max_score, score)
 
 func goto_scene(path):
 	# This function will usually be called from a signal callback,
