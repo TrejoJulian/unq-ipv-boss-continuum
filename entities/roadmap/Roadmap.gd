@@ -22,14 +22,12 @@ var moving_timeouts = 0
 
 
 func initialize(incoming_map_path:String):
-	print("pase")
 	map_path = incoming_map_path
 	_start()
 
 
 func _load_map(side):
 	var map = File.new()
-	print(map_path)
 	map.open(map_path, map.READ)
 	var json = map.get_as_text()
 	var json_result = JSON.parse(json).result
