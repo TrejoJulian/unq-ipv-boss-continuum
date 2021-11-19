@@ -30,8 +30,14 @@ func choose_screen():
 		end_background.pitch_scale = 0.7
 
 func _on_Restart_pressed():
+	end_background.stop()
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
 	Global.goto_scene("res://Game.tscn")
 
 
 func _on_Exit_pressed():
+	end_background.stop()
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
 	Global.goto_scene("res://menu/Menu.tscn")

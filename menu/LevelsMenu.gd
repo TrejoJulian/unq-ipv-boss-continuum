@@ -2,6 +2,7 @@ extends Control
 
 export (PackedScene) var level_button_scene
 onready var level_container = $MarginContainer/VBoxContainer/LevelContainer
+signal go_to_game(level_id)
 
 func _ready():
 	for i in Global.levels:
@@ -12,5 +13,4 @@ func _ready():
 		
 
 func _on_go_to_level(level_id):
-	Global.current_level = Global.levels[level_id]
-	Global.goto_scene("res://Game.tscn")
+	emit_signal("go_to_game", level_id)
