@@ -10,10 +10,13 @@ onready var medal = $ScoreScreen/HBoxContainer/VBoxContainer2/Medal
 
 export (Array, String) var medals
 export (Array, String) var ranks
-var score_value : int
 
 func _ready():
 	end_background.stream = load(Global.current_level.track)
+	self.choose_screen()
+	end_background.play()
+
+func choose_screen():
 	if GameStatus.won:
 		score_screen.show()
 		gameover_screen.hide()
@@ -25,8 +28,6 @@ func _ready():
 		score_screen.hide()
 		gameover_screen.show()
 		end_background.pitch_scale = 0.7
-	end_background.play()	
-
 
 func _on_Restart_pressed():
 	Global.goto_scene("res://Game.tscn")
