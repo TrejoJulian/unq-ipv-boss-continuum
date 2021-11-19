@@ -20,10 +20,11 @@ func _on_HealthTimer_timeout():
 
 
 func end_level():
-	GameStatus.set_score(GameData.score)
-	Global.update_level_max_score(GameData.score)
 	Global.goto_scene("res://end/EndScreen.tscn")
 
 
 func _on_AudioStreamPlayer_finished():
+	GameStatus.won = true
+	GameStatus.set_score(GameData.score)
+	Global.update_level_max_score(GameData.score)
 	self.end_level()
