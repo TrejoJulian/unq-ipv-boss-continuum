@@ -23,7 +23,7 @@ resource_name = "PitchShift"
 pitch_scale = 0.5
 
 [resource]
-bus/0/volume_db = -7.5114
+bus/0/volume_db = -5.32994
 bus/1/name = "NoteSfx"
 bus/1/solo = false
 bus/1/mute = false
