@@ -13,7 +13,7 @@
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 962.007, 1366.36, 1130.63, 633.855 )
+region = Rect2( 841.124, 1268.93, 1251.51, 731.282 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 80

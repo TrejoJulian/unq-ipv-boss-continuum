@@ -17,9 +17,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7.52552, 11.9751 )
 
-[node name="Note" type="Area2D" groups=[
-"note",
-]]
+[node name="Note" type="Area2D" groups=["note"]]
 script = ExtResource( 3 )
 speed = 230.0
 
