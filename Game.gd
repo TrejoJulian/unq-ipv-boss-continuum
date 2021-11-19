@@ -1,17 +1,20 @@
 extends Node
 
+onready var arrow_manager = $ArrowManager
+onready var player = $Player
+onready var audio_player = $AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameData.initialize()
 	GameStatus.initialize()
 	GameData.connect("depleted", self, "end_level")
-	$ArrowManager.connect("miss", $Player, "handle_miss")
-	$ArrowManager.connect("go_up", $Player, "jump_up")
-	$ArrowManager.connect("go_down", $Player, "jump_down")
+	arrow_manager.connect("miss", player, "handle_miss")
+	arrow_manager.connect("go_up", player, "jump_up")
+	arrow_manager.connect("go_down", player, "jump_down")
 	$Roadmap.initialize(Global.current_level.map_path)
-	$AudioStreamPlayer.stream = load(Global.current_level.track)
-	$AudioStreamPlayer.play()
+	audio_player.stream = load(Global.current_level.track)
+	audio_player.play()
 
 
 func _on_HealthTimer_timeout():

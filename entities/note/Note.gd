@@ -2,6 +2,8 @@ extends Area2D
 
 class_name Note
 
+onready var animated_sprite = $AnimatedSprite
+
 export var speed:float = 100
 
 var hit = false
@@ -17,16 +19,16 @@ func initialize(pos, note_direction, is_up):
 	global_position = pos
 	if note_direction > 0 :
 		if(is_up):
-			$AnimatedSprite.frame = 3
+			animated_sprite.frame = 3
 		else:
-			$AnimatedSprite.frame = 2
+			animated_sprite.frame = 2
 		self.rotation_degrees = 180
 		speed = -speed
 	elif note_direction < 0:
 		if(is_up):
-			$AnimatedSprite.frame = 1
+			animated_sprite.frame = 1
 		else:
-			$AnimatedSprite.frame = 0
+			animated_sprite.frame = 0
 	else:
 		printerr("Invalid direction set for note: " + note_direction)
 		return
