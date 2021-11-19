@@ -11,17 +11,17 @@ var levels = {
 			"max_score": 0,
 		},
 		2: {
-			"map_path": "res://assets/tuto.json",
-			"track": "res://assets/music/Komiku_-_07_-_Run_against_the_universe.mp3",
-			"sprite": "res://assets/character/Robot/PNG/Parts HD/headFocus.png",
-			"name": "Robot dance",
-			"max_score": 0,
-		},
-		3: {
 			"map_path": "res://assets/radioactive.json",
 			"track": "res://assets/music/radioactive.mp3",
 			"sprite": "res://assets/character/Robot/PNG/Parts HD/headShock.png",
 			"name": "Radioactive",
+			"max_score": 0,
+		},
+		3: {
+			"map_path": "res://assets/getLucky.json",
+			"track": "res://assets/music/getlucky.mp3",
+			"sprite": "res://assets/character/Robot/PNG/Parts HD/headShock.png",
+			"name": "Get Lucky",
 			"max_score": 0,
 		}
 	}

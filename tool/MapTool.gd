@@ -9,7 +9,6 @@ var move_timer_timeouts = []
 export var timer_interval = 0.05
 
 
-
 func _on_LeftTimer_timeout():
 	left_timer_uptime = left_timer_uptime + timer_interval
 
@@ -33,7 +32,6 @@ func _unhandled_input(event):
 		move_timer_timeouts.append(move_timer_uptime)
 		move_timer_uptime = 0
 	elif event.is_action_pressed("down"):
-		print(left_timer_timeouts)
 		print(right_timer_timeouts)
 		print(move_timer_timeouts)
 

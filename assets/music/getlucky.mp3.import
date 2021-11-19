@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/getlucky.mp3-0348c725cd67a685ca9b8a123b5c4fcb.mp3str"
+
+[deps]
+
+source_file="res://assets/music/getlucky.mp3"
+dest_files=[ "res://.import/getlucky.mp3-0348c725cd67a685ca9b8a123b5c4fcb.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -18,7 +18,7 @@ resource_name = "Distortion"
 [sub_resource type="AudioEffectEQ" id=6]
 resource_name = "EQ"
 
-[sub_resource type="AudioEffectPitchShift" id=8]
+[sub_resource type="AudioEffectPitchShift" id=7]
 resource_name = "PitchShift"
 pitch_scale = 0.5
 
@@ -54,5 +54,5 @@ bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = -3.92283
 bus/3/send = "Master"
-bus/3/effect/0/effect = SubResource( 8 )
+bus/3/effect/0/effect = SubResource( 7 )
 bus/3/effect/0/enabled = true

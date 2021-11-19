@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Call me.mp3-e9b525b2ec2cb7c4b3a907d9e7e24572.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Call me.mp3"
+dest_files=[ "res://.import/Call me.mp3-e9b525b2ec2cb7c4b3a907d9e7e24572.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
