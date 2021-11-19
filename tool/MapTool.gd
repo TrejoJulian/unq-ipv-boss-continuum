@@ -32,6 +32,7 @@ func _unhandled_input(event):
 		move_timer_timeouts.append(move_timer_uptime)
 		move_timer_uptime = 0
 	elif event.is_action_pressed("down"):
+		print(left_timer_timeouts)
 		print(right_timer_timeouts)
 		print(move_timer_timeouts)
 
