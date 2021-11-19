@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/arrows/1red.png" type="Texture" id=1]
 [ext_resource path="res://assets/arrows/3red.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://assets/sfx/note_sfx.wav" type="AudioStream" id=11]
 [ext_resource path="res://assets/arrows/3orange.png" type="Texture" id=12]
 [ext_resource path="res://assets/arrows/3blue.png" type="Texture" id=13]
+[ext_resource path="res://assets/vfx/random_selection.png" type="Texture" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 resource_name = "left_arrow"
@@ -22,6 +23,42 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.523, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0.0217391, 0.506818 ), 0.0, 1.51591, 0, 0, Vector2( 1, 1 ), -0.0212635, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 1.1
+scale_random = 0.3
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 4 )
+hue_variation = 0.02
+hue_variation_random = 1.0
+anim_offset = 1.0
+anim_offset_random = 1.0
 
 [node name="ArrowManager" type="Node"]
 script = ExtResource( 6 )
@@ -91,6 +128,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="LeftTextEffect" type="Particles2D" parent="FeedbackText"]
+visible = false
+modulate = Color( 0.858824, 0.537255, 0.878431, 1 )
+material = SubResource( 2 )
+position = Vector2( 353, 386.515 )
+amount = 6
+process_material = SubResource( 7 )
+texture = ExtResource( 14 )
+
 [node name="RightSideText" type="RichTextLabel" parent="FeedbackText"]
 margin_left = 627.134
 margin_top = 365.0
@@ -102,6 +148,15 @@ bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RightTextEffect" type="Particles2D" parent="FeedbackText"]
+visible = false
+modulate = Color( 0.858824, 0.537255, 0.878431, 1 )
+material = SubResource( 2 )
+position = Vector2( 680, 386.515 )
+amount = 6
+process_material = SubResource( 7 )
+texture = ExtResource( 14 )
 
 [node name="RightTextTimer" type="Timer" parent="FeedbackText"]
 wait_time = 0.5
