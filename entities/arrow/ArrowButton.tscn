@@ -22,7 +22,7 @@ particles_anim_loop = false
 offsets = PoolRealArray( 0, 0.770186, 0.950311, 1 )
 colors = PoolColorArray( 0.505859, 0, 1, 1, 0.88644, 0.770186, 1, 1, 0.975446, 0.950311, 1, 1, 0.0076828, 0.931945, 0.983398, 1 )
 
-[sub_resource type="GradientTexture" id=8]
+[sub_resource type="GradientTexture" id=10]
 gradient = SubResource( 7 )
 
 [sub_resource type="ParticlesMaterial" id=9]
@@ -42,7 +42,7 @@ angle_random = 1.0
 scale = 0.3
 scale_random = 0.2
 color = Color( 0, 0.901961, 1, 1 )
-color_ramp = SubResource( 8 )
+color_ramp = SubResource( 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2.37553, 4.44115 )
