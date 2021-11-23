@@ -11,6 +11,8 @@ signal miss
 signal go_up
 signal go_down
 
+var is_up:bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	left_arrow.connect("score_increased",self,"increase_score")
@@ -40,20 +42,34 @@ func handle_miss():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("up"):
-		right_arrow.position.y = bad_area_top.position.y
-		left_arrow.position.y = bad_area_top.position.y
-		right_arrow.set_is_up(true)
-		left_arrow.set_is_up(true)
-		emit_signal("go_up")
+		if not is_up:
+			_go_up()
+		else:
+			_go_down()
 	if event.is_action_pressed("down"):
-		right_arrow.position.y = bad_area_bottom.position.y
-		left_arrow.position.y = bad_area_bottom.position.y
-		right_arrow.set_is_up(false)
-		left_arrow.set_is_up(false)
-		emit_signal("go_down")
+		if is_up:
+			_go_down()
+		else:
+			_go_up()
 
 func play_note_audio():
 	note_sfx.play()
+
+func _go_up():
+	is_up = true
+	right_arrow.position.y = bad_area_top.position.y
+	left_arrow.position.y = bad_area_top.position.y
+	right_arrow.set_is_up(true)
+	left_arrow.set_is_up(true)
+	emit_signal("go_up")
+
+func _go_down():
+	is_up = false
+	right_arrow.position.y = bad_area_bottom.position.y
+	left_arrow.position.y = bad_area_bottom.position.y
+	right_arrow.set_is_up(false)
+	left_arrow.set_is_up(false)
+	emit_signal("go_down")
 
 func play_miss_audio():
 	discharge_sfx.play()
