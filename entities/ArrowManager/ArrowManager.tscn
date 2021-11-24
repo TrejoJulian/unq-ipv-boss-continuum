@@ -65,37 +65,37 @@ script = ExtResource( 6 )
 
 [node name="BottomLeftPhantomArrow" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.666667 )
-position = Vector2( 350, 480 )
+position = Vector2( 400, 480 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 
 [node name="BottomRightPhantomArrow" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.666667 )
-position = Vector2( 674, 480 )
+position = Vector2( 624, 480 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 12 )
 flip_h = true
 
 [node name="TopRightPhantomArrow" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.666667 )
-position = Vector2( 674, 290 )
+position = Vector2( 624, 290 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 13 )
 flip_h = true
 
 [node name="TopLeftPhantomArrow" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.666667 )
-position = Vector2( 350, 290 )
+position = Vector2( 400, 290 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 9 )
 
 [node name="ArrowLeft" parent="." instance=ExtResource( 3 )]
-position = Vector2( 350, 480 )
+position = Vector2( 400, 480 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 1 )
 
 [node name="ArrowRight" parent="." instance=ExtResource( 3 )]
-position = Vector2( 674, 480 )
+position = Vector2( 624, 480 )
 rotation = 3.14159
 scale = Vector2( 3, 3 )
 frames = ExtResource( 5 )
