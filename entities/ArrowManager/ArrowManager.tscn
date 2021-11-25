@@ -77,15 +77,15 @@ texture = ExtResource( 12 )
 flip_h = true
 
 [node name="TopRightPhantomArrow" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.666667 )
+modulate = Color( 1, 1, 1, 0.862745 )
 position = Vector2( 624, 290 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 13 )
 flip_h = true
 
 [node name="TopLeftPhantomArrow" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.666667 )
-position = Vector2( 400, 290 )
+modulate = Color( 1, 1, 1, 0.858824 )
+position = Vector2( 399.766, 290 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 9 )
 
