@@ -22,6 +22,9 @@ note_scene = ExtResource( 2 )
 
 [node name="MovingTimer" type="Timer" parent="."]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="timeout" from="RightNoteTimer" to="." method="_on_RightNoteTimer_timeout"]
 [connection signal="timeout" from="LeftNoteTimer" to="." method="_on_LeftNoteTimer_timeout"]
 [connection signal="timeout" from="MovingTimer" to="." method="_on_MovingTimer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

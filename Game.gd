@@ -7,7 +7,6 @@ onready var audio_player = $AudioStreamPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	yield(get_tree().create_timer(1.0),"timeout")
 	GameData.initialize()
 	GameStatus.initialize()
 	$HealthTimer.start()
@@ -18,8 +17,7 @@ func _ready():
 	GameData.connect("streak_changed", player, "on_streak_changed")
 	player.connect("streak_emited", self, "on_streak_emited")
 	$Roadmap.initialize(Global.current_level.map_path)
-	audio_player.stream = load(Global.current_level.track)
-	audio_player.play()
+	$Roadmap.connect("level_ended", self, "end_level")
 
 
 func _on_HealthTimer_timeout():
@@ -28,18 +26,15 @@ func _on_HealthTimer_timeout():
 
 
 func end_level():
-	audio_player.stop()
+	if GameData.current != 0:
+		GameStatus.won = true
+		GameStatus.set_score(GameData.score)
+		Global.update_level_max_score(GameData.score)
 	yield(get_tree(), "idle_frame")
 	yield(get_tree(), "idle_frame")
 	Global.goto_scene("res://end/EndScreen.tscn")
 
 
-func _on_AudioStreamPlayer_finished():
-	if GameData.current != 0:
-		GameStatus.won = true
-		GameStatus.set_score(GameData.score)
-		Global.update_level_max_score(GameData.score)
-	self.end_level()
 
 func on_streak_emited(streak):
 	add_child(streak)
