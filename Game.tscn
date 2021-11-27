@@ -448,7 +448,4 @@ wait_time = 0.33
 
 [node name="GUI" parent="." instance=ExtResource( 10 )]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
 [connection signal="timeout" from="HealthTimer" to="." method="_on_HealthTimer_timeout"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
