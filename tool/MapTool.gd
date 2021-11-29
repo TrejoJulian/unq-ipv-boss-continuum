@@ -8,6 +8,7 @@ var right_array = []
 var move_timer_timeouts = []
 export var timer_interval = 0.05
 var actual_time = 0.0
+var delay = 1.74
 
 
 # func _on_LeftTimer_timeout():
@@ -28,9 +29,9 @@ func _on_MoveTimer_timeout():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("left_arrow_pressed", false):
-		left_array.append(actual_time)
+		left_array.append(actual_time - delay)
 	elif event.is_action_pressed("right_arrow_pressed", false):
-		right_array.append(actual_time)
+		right_array.append(actual_time - delay)
 	elif event.is_action_pressed("up", false):
 		move_timer_timeouts.append(move_timer_uptime)
 		move_timer_uptime = 0
