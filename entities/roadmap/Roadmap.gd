@@ -43,16 +43,7 @@ func _load_map():
 	map.close()
 	
 	return json_result
-
-
-func _parse_map(map):
-	var parsed_map = []
-	var time = 0
-	for i in map.size():
-		time += map[i]
-		parsed_map.push_back(time)
-	return parsed_map
-
+	
 
 func _ready():
 	set_process(false)
@@ -60,11 +51,11 @@ func _ready():
 
 func _start():
 	# Parsear el json. y usar pop front
-	var parsed_json = _load_map()
+	var map = _load_map()
 	
-	self.right_map = _parse_map(parsed_json["right"])
-	self.left_map = _parse_map(parsed_json["left"])
-	self.moving_map = _parse_map(parsed_json["move"])
+	self.right_map = map["right"]
+	self.left_map = map["left"]
+	self.moving_map = map["move"]
 	
 	# Sincronizar el tiempo real con el delay.
 	audio_player.stream = load(Global.current_level.track)
