@@ -111,7 +111,7 @@ func _process(delta):
 		left_note_spawner.spawn()
 		left_map.pop_front()
 		if(!first_note_spawned):
-			self.parent.start_healt_timer()
+			self.get_parent().start_healt_timer()
 			self.first_note_spawned = true
 
 
