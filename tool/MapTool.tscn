@@ -10,18 +10,8 @@ script = ExtResource( 1 )
 stream = ExtResource( 2 )
 autoplay = true
 
-[node name="LeftTimer" type="Timer" parent="."]
-wait_time = 0.05
-autostart = true
-
-[node name="RightTimer" type="Timer" parent="."]
-wait_time = 0.05
-autostart = true
-
 [node name="MoveTimer" type="Timer" parent="."]
 wait_time = 0.05
 autostart = true
 
-[connection signal="timeout" from="LeftTimer" to="." method="_on_LeftTimer_timeout"]
-[connection signal="timeout" from="RightTimer" to="." method="_on_RightTimer_timeout"]
 [connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]

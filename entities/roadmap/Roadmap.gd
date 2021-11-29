@@ -69,7 +69,9 @@ func _start():
 	# Sincronizar el tiempo real con el delay.
 	audio_player.stream = load(Global.current_level.track)
 	audio_player.play()
-	time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()#probar antes y despues
+	
+	# Probar la siguiente linea antes y despues
+	time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
 	elapsed_time = -time_delay
 	
 	set_process(true)
