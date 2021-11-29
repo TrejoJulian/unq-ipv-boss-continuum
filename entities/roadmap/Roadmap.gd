@@ -26,6 +26,9 @@ var left_time_begin
 var right_time_begin
 var time_delay
 var elapsed_time
+
+var first_note_spawned
+
 signal level_ended
 
 func initialize(incoming_map_path:String):
@@ -41,6 +44,7 @@ func _load_map():
 	
 	return json_result
 
+
 func _parse_map(map):
 	var parsed_map = []
 	var time = 0
@@ -49,8 +53,10 @@ func _parse_map(map):
 		parsed_map.push_back(time)
 	return parsed_map
 
+
 func _ready():
 	set_process(false)
+
 
 func _start():
 	# Parsear el json. y usar pop front
@@ -88,17 +94,24 @@ func _start():
 
 func _process(delta):
 	# Obtain from ticks.
-	elapsed_time+= delta
+	elapsed_time += delta
 
 	print("Time is: ", elapsed_time)
 	#parametrizar
 	if !right_map.empty() && elapsed_time >= right_map.front():
 		right_note_spawner.spawn()
 		right_map.pop_front()
+		if(!first_note_spawned):
+			self.get_parent().start_healt_timer()
+			self.first_note_spawned = true
 
 	if !left_map.empty() && elapsed_time >= left_map.front():
 		left_note_spawner.spawn()
 		left_map.pop_front()
+		if(!first_note_spawned):
+			self.parent.start_healt_timer()
+			self.first_note_spawned = true
+
 
 #func _on_RightNoteTimer_timeout():
 #	right_note_spawner.spawn()

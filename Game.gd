@@ -9,7 +9,6 @@ func _ready():
 	randomize()
 	GameData.initialize()
 	GameStatus.initialize()
-	$HealthTimer.start()
 	GameData.connect("depleted", self, "end_level")
 	arrow_manager.connect("miss", player, "handle_miss")
 	arrow_manager.connect("go_up", player, "jump_up")
@@ -19,6 +18,10 @@ func _ready():
 	$Roadmap.initialize(Global.current_level.map_path)
 	$Roadmap.connect("level_ended", self, "end_level")
 
+
+func start_healt_timer():
+	$HealthTimer.start()
+	
 
 func _on_HealthTimer_timeout():
 	if GameData.current > 1:
