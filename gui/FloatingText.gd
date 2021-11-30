@@ -65,5 +65,4 @@ func get_text():
 
 
 func destroy():
-	#print("destroyed")
 	queue_free()
