@@ -1,5 +1,6 @@
 extends AnimatedSprite
 
+signal note_connected
 signal score_increased(score)
 signal miss
 var current_note:Note = null
@@ -15,6 +16,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed(input, false):
 		if current_note != null:
 			emit_signal("score_increased",score_counter)
+			emit_signal("note_connected")
 			current_note.destroy(score_counter)
 			_reset()
 		else:

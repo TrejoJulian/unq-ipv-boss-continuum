@@ -10,6 +10,8 @@ onready var discharge_sfx = $DischargeSfx
 signal miss
 signal go_up
 signal go_down
+signal left_arrow_connected
+signal right_arrow_connected
 
 var is_up:bool = false
 
@@ -18,9 +20,11 @@ func _ready():
 	left_arrow.connect("score_increased",self,"increase_score")
 	left_arrow.connect("score_increased", feedback_text, "on_left_arrow_button_pressed")
 	left_arrow.connect("miss",self,"handle_miss")
+	left_arrow.connect("note_connected",self,"notify_left_arrow_connect")
 	right_arrow.connect("score_increased",self,"increase_score")
 	right_arrow.connect("score_increased", feedback_text, "on_right_arrow_button_pressed")
 	right_arrow.connect("miss",self,"handle_miss")
+	right_arrow.connect("note_connected",self,"notify_right_arrow_connect")
 	bad_area_bottom.connect("miss",self,"handle_miss")
 	bad_area_top.connect("miss",self,"handle_miss")
 
@@ -75,3 +79,9 @@ func _go_down():
 
 func play_miss_audio():
 	discharge_sfx.play()
+
+func notify_left_arrow_connect():
+	emit_signal("left_arrow_connected")
+
+func notify_right_arrow_connect():
+	emit_signal("right_arrow_connected")
