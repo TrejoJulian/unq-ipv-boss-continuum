@@ -2,7 +2,6 @@ extends Node2D
 
 var floaty_text_scene = preload("res://gui/FloatingText.tscn")
 
-#onready var player = $AnimatedSprite
 onready var player:Sprite = $PlayerSprite
 onready var ghost_1:Sprite = $Ghost1
 onready var ghost_2:Sprite = $Ghost2
@@ -14,12 +13,29 @@ onready var front_particles = $PlayerSprite/FrontParticles
 export var vertical_up_position:float = 191.0
 export var vertical_bottom_position:float = 430.0
 
+var left_dance_moves = [
+						"Dance_left_1",
+						"Dance_left_2", 
+						"Dance_left_3", 
+						"Dance_left_4", 
+						"Dance_left_5"
+						]
+						
+var right_dance_moves = [
+						"Dance_right_1",
+						"Dance_right_2", 
+						"Dance_right_3", 
+						"Dance_right_4", 
+						"Dance_right_5",
+						"Dance_right_6"
+						]
+
 signal streak_emited(streak)
 
 func _ready():
 	_play_animation("idle")
 	
-	
+
 
 func _physics_process(delta):
 	ghost_1.global_position = ghost_1.global_position.linear_interpolate(player.global_position,.3)
@@ -27,7 +43,21 @@ func _physics_process(delta):
 	ghost_3.global_position = ghost_3.global_position.linear_interpolate(ghost_2.global_position,.3)
 
 func handle_miss():
+	if player_animation.is_playing():
+		player_animation.stop()
 	_play_animation("Miss")
+	yield(player_animation, "animation_finished")
+	_play_animation("Idle")
+
+func dance_left():
+	dance(left_dance_moves)
+
+func dance_right():
+	dance(right_dance_moves)
+
+func dance(moves):
+	var random_animation:String = moves[randi()%(moves.size())]
+	_play_animation(random_animation)
 	yield(player_animation, "animation_finished")
 	_play_animation("Idle")
 
