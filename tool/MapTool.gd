@@ -8,7 +8,7 @@ var right_array = []
 var move_timer_timeouts = []
 export var timer_interval = 0.05
 var actual_time = 0.0
-var delay = 1.74
+var delay = 1.8
 
 
 # func _on_LeftTimer_timeout():
