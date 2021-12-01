@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/arrows/2green.png" type="Texture" id=8]
 [ext_resource path="res://assets/arrows/3green.png" type="Texture" id=9]
 [ext_resource path="res://assets/sfx/ES_Electric Short - SFX Producer.mp3" type="AudioStream" id=10]
-[ext_resource path="res://assets/sfx/note_sfx.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/sfx/clean.mp3" type="AudioStream" id=11]
 [ext_resource path="res://assets/arrows/3orange.png" type="Texture" id=12]
 [ext_resource path="res://assets/arrows/3blue.png" type="Texture" id=13]
 [ext_resource path="res://assets/vfx/random_selection.png" type="Texture" id=14]
