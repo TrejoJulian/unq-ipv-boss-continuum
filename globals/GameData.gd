@@ -6,8 +6,10 @@ signal max_changed(new_max)
 signal changed(max_amount)
 signal depleted()
 
-var easy_mode:bool = false
-var hardcore_mode:bool = false
+enum MODE {EASY, MEDIUM, HARDCORE}
+var mode = MODE.MEDIUM
+const modes = ["Easy", "Medium", "Hardcore"]
+
 var max_amount setget set_max
 var current setget set_current
 var score setget set_score
@@ -20,13 +22,14 @@ func initialize():
 	score = 0
 	note_streak = 0
 
+
 func set_max(new_max):
 	max_amount = max(1, new_max)
 	emit_signal("max_changed", max_amount)
 
 
 func set_current(new_val):
-	if (!easy_mode):
+	if (mode != MODE.EASY):
 		current = clamp(new_val, 0, max_amount)	
 		emit_signal("changed", current)
 		if current == 0:

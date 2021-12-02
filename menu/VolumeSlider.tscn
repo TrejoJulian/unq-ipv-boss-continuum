@@ -16,7 +16,10 @@ region_rect = Rect2( 0, 10, 190, 20 )
 [node name="VolumeSlider" type="HBoxContainer"]
 margin_right = 1024.0
 margin_bottom = 50.0
-custom_constants/separation = 20
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Icon" type="TextureRect" parent="."]
 margin_right = 50.0
@@ -24,9 +27,9 @@ margin_bottom = 50.0
 texture = ExtResource( 3 )
 
 [node name="Slider" type="HSlider" parent="."]
-margin_left = 70.0
+margin_left = 60.0
 margin_top = 4.0
-margin_right = 260.0
+margin_right = 250.0
 margin_bottom = 46.0
 size_flags_vertical = 4
 custom_icons/grabber_disabled = ExtResource( 2 )
