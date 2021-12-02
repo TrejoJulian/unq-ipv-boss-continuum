@@ -18,9 +18,10 @@ func _ready():
 	player.connect("streak_emited", self, "on_streak_emited")
 	$Roadmap.initialize(Global.current_level.map_path)
 	$Roadmap.connect("level_ended", self, "end_level")
+	$Roadmap.connect("first_note_emited", self, "start_health_timer")
 
 
-func start_healt_timer():
+func start_health_timer():
 	$HealthTimer.start()
 	
 
