@@ -16,7 +16,7 @@ atlas = ExtResource( 1 )
 region = Rect2( 900, 1366.36, 1200, 633.855 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 25
+size = 35
 use_filter = true
 font_data = ExtResource( 2 )
 
@@ -75,7 +75,7 @@ margin_right = 250.0
 [node name="ModesDropdown" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
 visible = false
 margin_left = 300.0
-margin_right = 503.0
+margin_right = 435.0
 margin_bottom = 50.0
 custom_constants/hseparation = 20
 custom_constants/arrow_margin = 10
@@ -85,7 +85,7 @@ custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 8 )
 custom_styles/disabled = SubResource( 9 )
 custom_styles/normal = SubResource( 5 )
-text = "sfdsfsddfsdfsdfs"
+text = "Medium"
 
 [node name="LevelsMenu" type="Control" parent="VBoxContainer"]
 visible = false

@@ -79,7 +79,7 @@ func _process(delta):
 	# Obtain from ticks.
 	elapsed_time += delta
 
-	print("Time is: ", elapsed_time)
+#	print("Time is: ", elapsed_time)
 	
 	_spawn_note_if_apply(right_map,right_note_spawner)
 	_spawn_note_if_apply(left_map,left_note_spawner)

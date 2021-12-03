@@ -13,21 +13,21 @@ var levels = {
 		2: {
 			"map_path": "res://assets/radioactive.json",
 			"track": "res://assets/music/radioactive.mp3",
-			"sprite": "res://assets/character/Robot/PNG/Parts HD/headShock.png",
+			"sprite": "res://assets/character/Robot/PNG/Parts HD/headFocus.png",
 			"name": "Radioactive",
 			"max_score": 0,
 		},
 		3: {
-			"map_path": "res://assets/getLucky.json",
-			"track": "res://assets/music/getlucky.mp3",
+			"map_path": "res://assets/weAre.json",
+			"track": "res://assets/music/WeAre.mp3",
 			"sprite": "res://assets/character/Robot/PNG/Parts HD/headShock.png",
-			"name": "Get Lucky",
+			"name": "We Are",
 			"max_score": 0,
 		},
 		4: {
 			"map_path": "res://assets/getLucky.json",
 			"track": "res://assets/music/getlucky.mp3",
-			"sprite": "res://assets/character/Robot/PNG/Parts HD/headShock.png",
+			"sprite": "res://assets/character/Robot/PNG/Parts HD/headBack.png",
 			"name": "Get Lucky",
 			"max_score": 0,
 		}
