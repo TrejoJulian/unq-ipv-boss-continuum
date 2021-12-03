@@ -38,7 +38,7 @@ func increase_score(n):
 
 
 func handle_miss():
-	if GameData.hardcore_mode:
+	if GameData.mode == GameData.MODE.HARDCORE:
 		GameData.current -= 100
 	GameData.current -= 10
 	GameData.note_streak = 0

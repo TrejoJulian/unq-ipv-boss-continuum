@@ -23,6 +23,13 @@ var levels = {
 			"sprite": "res://assets/character/Robot/PNG/Parts HD/headShock.png",
 			"name": "Get Lucky",
 			"max_score": 0,
+		},
+		4: {
+			"map_path": "res://assets/getLucky.json",
+			"track": "res://assets/music/getlucky.mp3",
+			"sprite": "res://assets/character/Robot/PNG/Parts HD/headShock.png",
+			"name": "Get Lucky",
+			"max_score": 0,
 		}
 	}
 var current_level

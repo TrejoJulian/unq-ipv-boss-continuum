@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/audioOn.png-23832d001a6ffbf7f9a59134b86c0c32.stex"
+path="res://.import/blue_sliderDown.png-bd7c74663db7f96bbe215d00f1fa0e8a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/audioOn.png"
-dest_files=[ "res://.import/audioOn.png-23832d001a6ffbf7f9a59134b86c0c32.stex" ]
+source_file="res://assets/buttons/blue_sliderDown.png"
+dest_files=[ "res://.import/blue_sliderDown.png-bd7c74663db7f96bbe215d00f1fa0e8a.stex" ]
 
 [params]
 
