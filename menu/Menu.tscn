@@ -73,6 +73,7 @@ custom_constants/separation = 50
 margin_right = 250.0
 
 [node name="ModesDropdown" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+visible = false
 margin_left = 300.0
 margin_right = 503.0
 margin_bottom = 50.0
@@ -87,6 +88,7 @@ custom_styles/normal = SubResource( 5 )
 text = "sfdsfsddfsdfsdfs"
 
 [node name="LevelsMenu" type="Control" parent="VBoxContainer"]
+visible = false
 margin_top = 110.0
 margin_right = 1024.0
 margin_bottom = 110.0
@@ -135,7 +137,6 @@ __meta__ = {
 }
 
 [node name="MainMenu" type="Control" parent="VBoxContainer"]
-visible = false
 margin_top = 110.0
 margin_right = 1024.0
 margin_bottom = 110.0

@@ -11,7 +11,7 @@ enum {S, A, B, C}
 func initialize():
 	score    = 0
 	note_count = 0
-	won = false
+	won = true
 
 func set_score(s):
 	score = s

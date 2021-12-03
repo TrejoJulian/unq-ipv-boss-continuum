@@ -150,3 +150,6 @@ func _move_spawners_to_the_bottom():
 func _on_AudioStreamPlayer_finished():
 	audio_player.stop()
 	emit_signal("level_ended")
+
+func stop_music():
+	audio_player.stop()
