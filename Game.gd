@@ -60,3 +60,5 @@ func end_level():
 	yield(get_tree(), "idle_frame")
 	Global.goto_scene(end_path)
 
+func on_streak_emited(streak):
+	add_child(streak)
