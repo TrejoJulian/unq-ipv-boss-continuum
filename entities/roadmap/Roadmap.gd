@@ -30,6 +30,7 @@ var elapsed_time
 var first_note_spawned
 
 signal level_ended
+signal first_note_emited
 
 func initialize(incoming_map_path:String):
 	map_path = incoming_map_path
@@ -50,7 +51,7 @@ func _ready():
 
 
 func _start():
-	# Parsear el json. y usar pop front
+
 	var map = _load_map()
 	
 	self.right_map = map["right"]
@@ -61,27 +62,16 @@ func _start():
 	audio_player.stream = load(Global.current_level.track)
 	audio_player.play()
 	
-	# Probar la siguiente linea antes y despues
 	time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
 	elapsed_time = -time_delay
 	
 	set_process(true)
 	
-#	right_note_timer.wait_time = right_map[right_timeouts]
-#	self.right_timeouts += 1
-#	left_note_timer.wait_time = left_map[left_timeouts]
-#	self.left_timeouts += 1
 	moving_timer.wait_time = moving_map[moving_timeouts]
 	self.moving_timeouts += 1
 #
-#	right_note_timer.start()
-#	left_note_timer.start()
+
 	moving_timer.start()
-#
-#	right_note_timer.wait_time = right_map[right_timeouts]
-#	self.right_timeouts += 1
-#	left_note_timer.wait_time = left_map[left_timeouts]
-#	self.left_timeouts += 1
 	moving_timer.wait_time = moving_map[moving_timeouts]
 	self.moving_timeouts += 1
 
@@ -90,36 +80,19 @@ func _process(delta):
 	elapsed_time += delta
 
 	print("Time is: ", elapsed_time)
-	#parametrizar
-	if !right_map.empty() && elapsed_time >= right_map.front():
-		right_note_spawner.spawn()
-		right_map.pop_front()
+	
+	_spawn_note_if_apply(right_map,right_note_spawner)
+	_spawn_note_if_apply(left_map,left_note_spawner)
+
+
+func _spawn_note_if_apply(map, spawner):
+	if !map.empty() && elapsed_time >= map.front():
+		spawner.spawn()
+		map.pop_front()
 		if(!first_note_spawned):
-			self.get_parent().start_healt_timer()
+			emit_signal("first_note_emited")
 			self.first_note_spawned = true
 
-	if !left_map.empty() && elapsed_time >= left_map.front():
-		left_note_spawner.spawn()
-		left_map.pop_front()
-		if(!first_note_spawned):
-			self.get_parent().start_healt_timer()
-			self.first_note_spawned = true
-
-
-#func _on_RightNoteTimer_timeout():
-#	right_note_spawner.spawn()
-#	right_note_timer.wait_time = right_map[right_timeouts]
-#	self.right_timeouts += 1
-#	if(len(right_map) - 1 < self.right_timeouts):
-#		right_note_timer.stop()
-#
-#
-#func _on_LeftNoteTimer_timeout():
-#	left_note_spawner.spawn()
-#	left_note_timer.wait_time = left_map[left_timeouts]
-#	self.left_timeouts += 1
-#	if(len(left_map) - 1 < self.left_timeouts):
-#		left_note_timer.stop()
 
 
 func _on_MovingTimer_timeout():

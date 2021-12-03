@@ -21,13 +21,13 @@ func _ready():
 	arrow_manager.connect("right_arrow_connected", player, "dance_right")
 	GameData.connect("streak_changed", player, "on_streak_changed")
 	player.connect("streak_emited", self, "on_streak_emited")
-	roadmap.initialize(Global.current_level.map_path)
+  roadmap.initialize(Global.current_level.map_path)
 	roadmap.connect("level_ended", self, "end_level")
+  roadmap.connect("first_note_emited", self, "start_health_timer")
 	gui.connect("level_exited", self, "quit_level")
 
 
-
-func start_healt_timer():
+func start_health_timer():
 	$HealthTimer.start()
 	
 
