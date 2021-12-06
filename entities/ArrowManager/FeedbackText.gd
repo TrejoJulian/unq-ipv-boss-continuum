@@ -12,7 +12,7 @@ export var great_score:int   = 2
 export var okay_score:int    = 1
 export var perfect_bbcode_text:String = "[wave][rainbow freq=2.5 val=1.3]Perfect"
 export var great_bbcode_text:String = "[wave] Great"
-export var okay_bbcode_text:String = "   Ok"
+export var okay_bbcode_text:String = "    Ok"
 export var great_text_colour = Color("e2ef08")
 export var default_text_colour = Color("ffffff")
 
