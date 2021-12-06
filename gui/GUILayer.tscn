@@ -39,13 +39,15 @@ __meta__ = {
 }
 
 [node name="HealthBar" parent="GUI" instance=ExtResource( 2 )]
-margin_left = 32.0
-margin_top = 79.0
-margin_right = 336.0
-margin_bottom = 111.0
+margin_left = 278.51
+margin_top = 442.0
+margin_right = 391.51
+margin_bottom = 511.0
+rect_rotation = 180.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
+percent_visible = false
 
 [node name="Score" parent="GUI" instance=ExtResource( 1 )]
 margin_left = 830.0
