@@ -1,22 +1,29 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/background/4127298.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/bold_game_font_7.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://menu/VolumeSlider.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/menu/down.png" type="Texture" id=4]
 [ext_resource path="res://assets/buttons/buttonStart.png" type="Texture" id=5]
 [ext_resource path="res://menu/LevelButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/music/Funky_Love_Disco_Pump.mp3" type="AudioStream" id=7]
 [ext_resource path="res://menu/Menu.gd" type="Script" id=8]
 [ext_resource path="res://menu/MainMenu.gd" type="Script" id=9]
 [ext_resource path="res://menu/LevelsMenu.gd" type="Script" id=10]
+[ext_resource path="res://assets/menu/option_button_theme.tres" type="Theme" id=11]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 900, 1366.36, 1200, 633.855 )
 
+[sub_resource type="DynamicFont" id=2]
+size = 80
+use_filter = true
+font_data = ExtResource( 2 )
+
 [sub_resource type="DynamicFont" id=4]
-size = 35
+size = 40
 use_filter = true
 font_data = ExtResource( 2 )
 
@@ -29,11 +36,6 @@ font_data = ExtResource( 2 )
 [sub_resource type="StyleBoxTexture" id=9]
 
 [sub_resource type="StyleBoxTexture" id=5]
-
-[sub_resource type="DynamicFont" id=2]
-size = 80
-use_filter = true
-font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 128
@@ -64,31 +66,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_right = 1024.0
-margin_bottom = 50.0
-custom_constants/separation = 50
-
-[node name="VolumeSlider" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
-margin_right = 250.0
-
-[node name="ModesDropdown" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
-visible = false
-margin_left = 300.0
-margin_right = 435.0
-margin_bottom = 50.0
-custom_constants/hseparation = 20
-custom_constants/arrow_margin = 10
-custom_fonts/font = SubResource( 4 )
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
-custom_styles/normal = SubResource( 5 )
-text = "Medium"
+[node name="VolumeSlider" parent="VBoxContainer" instance=ExtResource( 3 )]
 
 [node name="LevelsMenu" type="Control" parent="VBoxContainer"]
-visible = false
 margin_top = 110.0
 margin_right = 1024.0
 margin_bottom = 110.0
@@ -101,42 +81,67 @@ level_button_scene = ExtResource( 6 )
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/LevelsMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_left = 50
+custom_constants/margin_right = 40
+custom_constants/margin_left = 40
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/LevelsMenu/MarginContainer"]
-margin_left = 50.0
-margin_right = 1024.0
+margin_left = 40.0
+margin_right = 984.0
 margin_bottom = 140.0
 custom_constants/separation = 60
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Levels" type="Label" parent="VBoxContainer/LevelsMenu/MarginContainer/VBoxContainer"]
-margin_right = 974.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/LevelsMenu/MarginContainer/VBoxContainer"]
+margin_right = 944.0
 margin_bottom = 80.0
+custom_constants/separation = 100
+
+[node name="Levels" type="Label" parent="VBoxContainer/LevelsMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 220.0
+margin_bottom = 80.0
+size_flags_vertical = 1
 custom_fonts/font = SubResource( 2 )
 text = "Levels"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ModesDropdown" type="OptionButton" parent="VBoxContainer/LevelsMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 320.0
+margin_right = 506.0
+margin_bottom = 80.0
+theme = ExtResource( 11 )
+custom_constants/hseparation = 20
+custom_constants/arrow_margin = 10
+custom_fonts/font = SubResource( 4 )
+custom_icons/arrow = ExtResource( 4 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 5 )
+text = "Classic"
+align = 2
+
 [node name="LevelContainer" type="GridContainer" parent="VBoxContainer/LevelsMenu/MarginContainer/VBoxContainer"]
-margin_left = 487.0
+margin_left = 472.0
 margin_top = 140.0
-margin_right = 487.0
+margin_right = 472.0
 margin_bottom = 140.0
 size_flags_horizontal = 4
-custom_constants/hseparation = 80
+custom_constants/hseparation = 50
 columns = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MainMenu" type="Control" parent="VBoxContainer"]
+visible = false
 margin_top = 110.0
 margin_right = 1024.0
 margin_bottom = 110.0
@@ -171,5 +176,5 @@ texture_normal = ExtResource( 5 )
 stream = ExtResource( 7 )
 autoplay = true
 
-[connection signal="item_selected" from="VBoxContainer/HBoxContainer/ModesDropdown" to="." method="_on_ModesDropdown_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/LevelsMenu/MarginContainer/VBoxContainer/HBoxContainer/ModesDropdown" to="VBoxContainer/LevelsMenu" method="_on_ModesDropdown_item_selected"]
 [connection signal="pressed" from="VBoxContainer/MainMenu/VBoxContainer/StartButton" to="VBoxContainer/MainMenu" method="_on_StartButton_pressed"]
