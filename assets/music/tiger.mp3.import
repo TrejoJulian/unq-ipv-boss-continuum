@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tiger.mp3-387bdf122135df580d59e5b98e7f334c.mp3str"
+
+[deps]
+
+source_file="res://assets/music/tiger.mp3"
+dest_files=[ "res://.import/tiger.mp3-387bdf122135df580d59e5b98e7f334c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

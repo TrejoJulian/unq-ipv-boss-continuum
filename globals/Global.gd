@@ -25,6 +25,13 @@ var levels = {
 			"max_score": 0,
 		},
 		4: {
+			"map_path": "res://assets/tiger.json",
+			"track": "res://assets/music/tiger.mp3",
+			"sprite": "res://assets/character/Robot/PNG/Parts HD/headBack.png",
+			"name": "Eye of the Tiger",
+			"max_score": 0,
+		},
+		5: {
 			"map_path": "res://assets/getLucky.json",
 			"track": "res://assets/music/getlucky.mp3",
 			"sprite": "res://assets/character/Robot/PNG/Parts HD/headBack.png",
