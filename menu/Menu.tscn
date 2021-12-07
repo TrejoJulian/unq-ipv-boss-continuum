@@ -81,14 +81,15 @@ level_button_scene = ExtResource( 6 )
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/LevelsMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_left = 50
+custom_constants/margin_right = 40
+custom_constants/margin_left = 40
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/LevelsMenu/MarginContainer"]
-margin_left = 50.0
-margin_right = 1024.0
+margin_left = 40.0
+margin_right = 984.0
 margin_bottom = 140.0
 custom_constants/separation = 60
 __meta__ = {
@@ -96,13 +97,14 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/LevelsMenu/MarginContainer/VBoxContainer"]
-margin_right = 974.0
+margin_right = 944.0
 margin_bottom = 80.0
 custom_constants/separation = 100
 
 [node name="Levels" type="Label" parent="VBoxContainer/LevelsMenu/MarginContainer/VBoxContainer/HBoxContainer"]
 margin_right = 220.0
 margin_bottom = 80.0
+size_flags_vertical = 1
 custom_fonts/font = SubResource( 2 )
 text = "Levels"
 __meta__ = {
@@ -127,12 +129,12 @@ text = "Classic"
 align = 2
 
 [node name="LevelContainer" type="GridContainer" parent="VBoxContainer/LevelsMenu/MarginContainer/VBoxContainer"]
-margin_left = 487.0
+margin_left = 472.0
 margin_top = 140.0
-margin_right = 487.0
+margin_right = 472.0
 margin_bottom = 140.0
 size_flags_horizontal = 4
-custom_constants/hseparation = 80
+custom_constants/hseparation = 50
 columns = 5
 __meta__ = {
 "_edit_use_anchors_": false
