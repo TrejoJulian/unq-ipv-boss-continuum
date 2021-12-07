@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://gui/SpecialLabel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gui/HealthBar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/fonts/8-BIT WONDER.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://gui/GUI.gd" type="Script" id=4]
 [ext_resource path="res://assets/fonts/bold_game_font_7.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/health/Rayo.png" type="Texture" id=6]
 [ext_resource path="res://assets/buttons/right.png" type="Texture" id=7]
 [ext_resource path="res://assets/buttons/glassPanel - pink.png" type="Texture" id=8]
 [ext_resource path="res://assets/buttons/exit.png" type="Texture" id=9]
@@ -28,21 +29,36 @@ size = 50
 use_filter = true
 font_data = ExtResource( 5 )
 
+[sub_resource type="DynamicFont" id=5]
+size = 10
+font_data = ExtResource( 3 )
+
 [node name="GUILayer" type="CanvasLayer"]
 
 [node name="GUI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 19.6974
+margin_top = -4.4949
+margin_right = 19.6975
+margin_bottom = -4.49487
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Rayo" type="Sprite" parent="GUI"]
+position = Vector2( 203.375, 411.344 )
+rotation = -3.14159
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+texture = ExtResource( 6 )
+
 [node name="HealthBar" parent="GUI" instance=ExtResource( 2 )]
-margin_left = 278.51
-margin_top = 442.0
-margin_right = 391.51
-margin_bottom = 511.0
+margin_left = 259.0
+margin_top = 446.0
+margin_right = 366.5
+margin_bottom = 515.0
 rect_rotation = 180.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -116,6 +132,14 @@ margin_right = 314.0
 margin_bottom = 106.0
 icon = ExtResource( 9 )
 flat = true
+
+[node name="Label" type="Label" parent="GUI"]
+margin_left = -12.1352
+margin_top = 17.2432
+margin_right = 119.865
+margin_bottom = 60.2432
+custom_fonts/font = SubResource( 5 )
+text = "Press ESC to pause"
 
 [connection signal="pressed" from="GUI/PopupPanel/VBoxContainer/HBoxContainer/Resume" to="GUI" method="_on_Resume_pressed"]
 [connection signal="pressed" from="GUI/PopupPanel/VBoxContainer/HBoxContainer/Exit" to="GUI" method="_on_Exit_pressed"]
