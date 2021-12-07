@@ -8,7 +8,7 @@ signal depleted()
 
 enum MODE {EASY, MEDIUM, HARDCORE}
 var mode = MODE.MEDIUM
-const modes = ["Easy", "Medium", "Hardcore"]
+const modes = ["Training", "Classic", "One Life"]
 
 var max_amount setget set_max
 var current setget set_current
