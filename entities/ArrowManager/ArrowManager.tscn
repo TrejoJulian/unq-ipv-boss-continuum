@@ -148,9 +148,9 @@ process_material = SubResource( 7 )
 texture = ExtResource( 14 )
 
 [node name="RightSideText" type="RichTextLabel" parent="FeedbackText"]
-margin_left = 627.134
+margin_left = 595.134
 margin_top = 365.0
-margin_right = 686.134
+margin_right = 654.134
 margin_bottom = 381.0
 rect_scale = Vector2( 2.5, 2.5 )
 rect_clip_content = false
@@ -164,7 +164,7 @@ __meta__ = {
 visible = false
 modulate = Color( 0.858824, 0.537255, 0.878431, 1 )
 material = SubResource( 2 )
-position = Vector2( 688, 380.015 )
+position = Vector2( 655, 380.015 )
 amount = 6
 process_material = SubResource( 7 )
 texture = ExtResource( 14 )
