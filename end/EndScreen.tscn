@@ -28,18 +28,20 @@ script = ExtResource( 3 )
 medals = [ "res://assets/medals/flatshadow_medal1.png", "res://assets/medals/flat_medal9.png", "res://assets/medals/flatshadow_medal3.png", "res://assets/medals/flatshadow_medal2.png" ]
 ranks = [ "S", "A", "B", "C" ]
 
-[node name="GameOverScreen" type="Control" parent="."]
-visible = false
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
+[node name="GameOverScreen" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -101,14 +103,6 @@ flip_h = true
 [node name="ScoreScreen" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="ScoreScreen"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.937255, 0.47451, 0.541176, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
