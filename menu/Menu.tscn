@@ -104,8 +104,10 @@ __meta__ = {
 
 [node name="ModesDropdown" type="OptionButton" parent="VBoxContainer/LevelsMenu/MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 302.0
+margin_top = 28.0
 margin_right = 474.0
-margin_bottom = 115.0
+margin_bottom = 86.0
+size_flags_vertical = 4
 theme = ExtResource( 11 )
 custom_constants/hseparation = 20
 custom_constants/arrow_margin = 10

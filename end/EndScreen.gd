@@ -1,9 +1,11 @@
 extends Node
 
+onready var winning_background_image = preload("res://assets/background/Fondo_Win.jpg")
+onready var losing_background_image = preload("res://assets/background/Fondo_Lose.jpg")
 onready var score_screen = $ScoreScreen
 onready var gameover_screen = $GameOverScreen
 onready var end_background = $AudioStreamPlayer
-
+onready var background_image = $CanvasLayer/Background
 onready var score = $ScoreScreen/HBoxContainer/VBoxContainer/Score
 onready var rank = $ScoreScreen/HBoxContainer/VBoxContainer2/Rank
 onready var medal = $ScoreScreen/HBoxContainer/VBoxContainer2/Medal
@@ -19,7 +21,7 @@ func _ready():
 func choose_screen():
 	if GameStatus.won:
 		score_screen.show()
-		$ScoreScreen/CanvasLayer/Background.show()
+		background_image.texture = winning_background_image
 		gameover_screen.hide()
 		score.text = "Score: %s" % GameStatus.score
 		rank.text = "Rank\n%s" % ranks[GameStatus.rank()]
@@ -27,7 +29,7 @@ func choose_screen():
 		end_background.pitch_scale = 1.2
 	else:
 		score_screen.hide()
-		$ScoreScreen/CanvasLayer/Background.hide()
+		background_image.texture = losing_background_image
 		gameover_screen.show()
 		end_background.pitch_scale = 0.7
 
