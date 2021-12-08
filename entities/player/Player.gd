@@ -94,7 +94,7 @@ func on_streak_changed(streak):
 		var floaty_text = floaty_text_scene.instance()
 		floaty_text.global_position = player.global_position
 		floaty_text.velocity = Vector2(rand_range(-50, 50), -100)
-		floaty_text.modulate = Color(rand_range(0.7, 1), rand_range(0.7, 1), rand_range(0.7, 1), 1.0)
+		floaty_text.modulate = Color(0.9, rand_range(0, 0.5), rand_range(0, 0.9), 1.0)
 		floaty_text.text = str(streak)
 		emit_signal("streak_emited", floaty_text)
 	back_particles.visible = streak >= 50
