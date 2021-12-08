@@ -19,6 +19,7 @@ func _ready():
 func choose_screen():
 	if GameStatus.won:
 		score_screen.show()
+		$ScoreScreen/CanvasLayer/Background.show()
 		gameover_screen.hide()
 		score.text = "Score: %s" % GameStatus.score
 		rank.text = "Rank\n%s" % ranks[GameStatus.rank()]
@@ -26,6 +27,7 @@ func choose_screen():
 		end_background.pitch_scale = 1.2
 	else:
 		score_screen.hide()
+		$ScoreScreen/CanvasLayer/Background.hide()
 		gameover_screen.show()
 		end_background.pitch_scale = 0.7
 
