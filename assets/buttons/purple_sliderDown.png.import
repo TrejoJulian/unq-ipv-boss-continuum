@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/4127298.jpg-8c3b28edb1ce7a08f2d3342e40cf9324.stex"
+path="res://.import/purple_sliderDown.png-1728e90e605db7842552238a3f13b042.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/4127298.jpg"
-dest_files=[ "res://.import/4127298.jpg-8c3b28edb1ce7a08f2d3342e40cf9324.stex" ]
+source_file="res://assets/buttons/purple_sliderDown.png"
+dest_files=[ "res://.import/purple_sliderDown.png-1728e90e605db7842552238a3f13b042.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
