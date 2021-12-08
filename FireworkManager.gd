@@ -1,23 +1,16 @@
 extends Node
 
-var activated_fireworks: int = 0
 
 func _ready():
-	GameData.connect("score_changed", self, "activate_fireworks")
+	GameData.connect("streak_changed", self, "activate_fireworks")
 
-func activate_fireworks(new_score):
-	if activated_fireworks < 4  && new_score > 200:
-		activated_fireworks += 1
-		$Firework4.play()
-		GameData.disconnect("score_changed", self, "activate_fireworks")
-	elif activated_fireworks < 3 && new_score > 150:
-		activated_fireworks += 1
-		$Firework3.play()
-	elif activated_fireworks < 2 && new_score > 100:
-		activated_fireworks += 1
-		$Firework2.play()
-	elif activated_fireworks < 1 && new_score > 50:
-		activated_fireworks += 1
-		$Firework1.play()
-	else:
-		return
+
+# reproduzco los fireworks una vez y si fallo el streak desactivo el loopeo, no los paro
+func activate_fireworks(new_streak):
+	for f in get_children():
+		if new_streak == 0 and f.is_playing():
+			f.set_loop(false)
+		if f.start_streak == new_streak:
+			if not f.is_playing():
+				f.play()
+			f.set_loop(true)
