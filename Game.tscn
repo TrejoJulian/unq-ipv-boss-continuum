@@ -11,7 +11,7 @@
 [ext_resource path="res://gui/GUILayer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/background/background/parallax/near-buildings-bg.png" type="Texture" id=11]
 [ext_resource path="res://assets/background/tileset.png" type="Texture" id=12]
-[ext_resource path="res://FireworkManager.gd" type="Script" id=18]
+[ext_resource path="res://entities/firework/FireworkManager.gd" type="Script" id=18]
 [ext_resource path="res://assets/health/Pila.png" type="Texture" id=19]
 [ext_resource path="res://entities/firework/Firework.tscn" type="PackedScene" id=20]
 

@@ -22,6 +22,11 @@ size = 80
 use_filter = true
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=8]
+size = 40
+use_filter = true
+font_data = ExtResource( 2 )
+
 [sub_resource type="StyleBoxTexture" id=3]
 
 [sub_resource type="StyleBoxTexture" id=4]
@@ -31,11 +36,6 @@ font_data = ExtResource( 2 )
 [sub_resource type="StyleBoxTexture" id=6]
 
 [sub_resource type="StyleBoxTexture" id=7]
-
-[sub_resource type="DynamicFont" id=8]
-size = 40
-use_filter = true
-font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 128
@@ -116,15 +116,15 @@ margin_left = 320.0
 margin_right = 506.0
 margin_bottom = 80.0
 theme = ExtResource( 11 )
+custom_constants/hseparation = 20
+custom_constants/arrow_margin = 10
+custom_fonts/font = SubResource( 8 )
 custom_icons/arrow = ExtResource( 4 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = SubResource( 6 )
 custom_styles/normal = SubResource( 7 )
-custom_fonts/font = SubResource( 8 )
-custom_constants/hseparation = 20
-custom_constants/arrow_margin = 10
 text = "Classic"
 align = 2
 
