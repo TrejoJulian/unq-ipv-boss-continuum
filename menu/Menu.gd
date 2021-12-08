@@ -3,6 +3,7 @@ extends Node
 onready var main_menu: Control = $VBoxContainer/MainMenu
 onready var levels_menu: Control = $VBoxContainer/LevelsMenu
 onready var bgm = $BackgroundPlayer
+onready var level_selection_menu = preload("res://assets/background/Fondo_sin_logo.jpg")
 
 func _ready():
 	main_menu.connect("go_to_levels", self, "_on_go_to_levels")
@@ -14,6 +15,7 @@ func _ready():
 func _on_go_to_levels():
 	main_menu.hide()
 	levels_menu.show()
+	$BackgroundLayer/Background.texture = level_selection_menu
 
 
 func _on_ExitButton_pressed():

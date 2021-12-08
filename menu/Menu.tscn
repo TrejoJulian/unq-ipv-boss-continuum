@@ -1,26 +1,22 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://assets/background/4127298.jpg" type="Texture" id=1]
-[ext_resource path="res://assets/fonts/bold_game_font_7.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/background/Logo__Fondo.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/Teko-SemiBold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://menu/VolumeSlider.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/menu/down.png" type="Texture" id=4]
-[ext_resource path="res://assets/buttons/buttonStart.png" type="Texture" id=5]
+[ext_resource path="res://assets/buttons/Boton_start.png" type="Texture" id=5]
 [ext_resource path="res://menu/LevelButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/music/Funky_Love_Disco_Pump.mp3" type="AudioStream" id=7]
 [ext_resource path="res://menu/Menu.gd" type="Script" id=8]
 [ext_resource path="res://menu/MainMenu.gd" type="Script" id=9]
 [ext_resource path="res://menu/LevelsMenu.gd" type="Script" id=10]
 [ext_resource path="res://assets/menu/option_button_theme.tres" type="Theme" id=11]
-
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 900, 1366.36, 1200, 633.855 )
+[ext_resource path="res://assets/fonts/Teko-Bold.ttf" type="DynamicFontData" id=12]
 
 [sub_resource type="DynamicFont" id=2]
 size = 80
 use_filter = true
-font_data = ExtResource( 2 )
+font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 40
@@ -37,11 +33,6 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxTexture" id=7]
 
-[sub_resource type="DynamicFont" id=9]
-size = 128
-use_filter = true
-font_data = ExtResource( 2 )
-
 [node name="Menu" type="Node"]
 script = ExtResource( 8 )
 
@@ -51,7 +42,7 @@ layer = -100
 [node name="Background" type="TextureRect" parent="BackgroundLayer"]
 margin_right = 1024.0
 margin_bottom = 600.0
-texture = SubResource( 1 )
+texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1
 __meta__ = {
@@ -90,7 +81,7 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/LevelsMenu/MarginContainer"]
 margin_left = 40.0
 margin_right = 984.0
-margin_bottom = 140.0
+margin_bottom = 175.0
 custom_constants/separation = 60
 __meta__ = {
 "_edit_use_anchors_": false
@@ -98,12 +89,12 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/LevelsMenu/MarginContainer/VBoxContainer"]
 margin_right = 944.0
-margin_bottom = 80.0
+margin_bottom = 115.0
 custom_constants/separation = 100
 
 [node name="Levels" type="Label" parent="VBoxContainer/LevelsMenu/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_right = 220.0
-margin_bottom = 80.0
+margin_right = 202.0
+margin_bottom = 115.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 2 )
 text = "Levels"
@@ -112,9 +103,9 @@ __meta__ = {
 }
 
 [node name="ModesDropdown" type="OptionButton" parent="VBoxContainer/LevelsMenu/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 320.0
-margin_right = 506.0
-margin_bottom = 80.0
+margin_left = 302.0
+margin_right = 474.0
+margin_bottom = 115.0
 theme = ExtResource( 11 )
 custom_constants/hseparation = 20
 custom_constants/arrow_margin = 10
@@ -130,9 +121,9 @@ align = 2
 
 [node name="LevelContainer" type="GridContainer" parent="VBoxContainer/LevelsMenu/MarginContainer/VBoxContainer"]
 margin_left = 472.0
-margin_top = 140.0
+margin_top = 175.0
 margin_right = 472.0
-margin_bottom = 140.0
+margin_bottom = 175.0
 size_flags_horizontal = 4
 custom_constants/hseparation = 50
 columns = 5
@@ -141,40 +132,26 @@ __meta__ = {
 }
 
 [node name="MainMenu" type="Control" parent="VBoxContainer"]
-visible = false
-margin_top = 110.0
+margin_top = 170.0
 margin_right = 1024.0
-margin_bottom = 110.0
+margin_bottom = 170.0
 script = ExtResource( 9 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MainMenu"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/separation = 60
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="VBoxContainer/MainMenu/VBoxContainer"]
-margin_right = 1024.0
-margin_bottom = 128.0
-custom_fonts/font = SubResource( 9 )
-text = "Continuum"
-align = 1
-
-[node name="StartButton" type="TextureButton" parent="VBoxContainer/MainMenu/VBoxContainer"]
+[node name="StartButton" type="TextureButton" parent="VBoxContainer/MainMenu"]
 margin_left = 462.0
-margin_top = 188.0
+margin_top = 223.0
 margin_right = 562.0
-margin_bottom = 288.0
+margin_bottom = 266.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BackgroundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
 
 [connection signal="item_selected" from="VBoxContainer/LevelsMenu/MarginContainer/VBoxContainer/HBoxContainer/ModesDropdown" to="VBoxContainer/LevelsMenu" method="_on_ModesDropdown_item_selected"]
-[connection signal="pressed" from="VBoxContainer/MainMenu/VBoxContainer/StartButton" to="VBoxContainer/MainMenu" method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenu/StartButton" to="VBoxContainer/MainMenu" method="_on_StartButton_pressed"]
