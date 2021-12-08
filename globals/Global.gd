@@ -6,7 +6,7 @@ var levels = {
 		1: {
 			"map_path": "res://assets/tuto.json",
 			"track": "res://assets/music/Komiku_-_07_-_Run_against_the_universe.mp3",
-			"sprite": "res://assets/character/Robot/PNG/Parts HD/head.png",
+			"sprite": "res://assets/character/Robot/PNG/Parts HD/headSleep.png",
 			"name": "Tutorial",
 			"max_score": 0,
 		},
@@ -20,15 +20,15 @@ var levels = {
 		3: {
 			"map_path": "res://assets/weAre.json",
 			"track": "res://assets/music/WeAre.mp3",
-			"sprite": "res://assets/character/Robot/PNG/Parts HD/headShock.png",
+			"sprite": "res://assets/character/Robot/PNG/Parts HD/head.png",
 			"name": "We Are",
 			"max_score": 0,
 		},
 		4: {
 			"map_path": "res://assets/tiger.json",
 			"track": "res://assets/music/tiger.mp3",
-			"sprite": "res://assets/character/Robot/PNG/Parts HD/headBack.png",
-			"name": "Eye of the Tiger",
+			"sprite": "res://assets/character/Robot/PNG/Parts HD/headShock.png",
+			"name": "Eye of Tiger",
 			"max_score": 0,
 		},
 		5: {
