@@ -8,7 +8,7 @@ export var mass = 200
 
 # warning-ignore:unused_class_variable
 var text setget set_text, get_text
-
+var subtext setget set_subtext, get_subtext
 func _ready():
 	"""
 	Fade from current color after 0.7 seconds
@@ -56,12 +56,21 @@ func _process(delta):
 
 func set_text(new_text):
 	
-	$Label.text = str(new_text)
+	$HBoxContainer/Label.text = str(new_text)
 
 
 func get_text():
 	
-	return $Label.text
+	return $HBoxContainer/Label.text
+
+func set_subtext(new_text):
+	
+	$HBoxContainer/Subtext.text = str(new_text)
+
+
+func get_subtext():
+	
+	return $HBoxContainer/Subtext.text
 
 
 func destroy():
