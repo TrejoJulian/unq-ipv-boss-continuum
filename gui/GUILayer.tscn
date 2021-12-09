@@ -64,6 +64,9 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 percent_visible = false
+healthy_color = Color( 0.917647, 0.160784, 0.780392, 1 )
+caution_color = Color( 0.570313, 0.195488, 0.460608, 1 )
+danger_color = Color( 0.215686, 0.0705882, 0.176471, 1 )
 
 [node name="Score" parent="GUI" instance=ExtResource( 1 )]
 margin_left = 830.0
