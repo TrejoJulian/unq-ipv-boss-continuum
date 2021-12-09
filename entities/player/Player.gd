@@ -22,12 +22,12 @@ var left_dance_moves = [
 						]
 						
 var right_dance_moves = [
-						"Dance_right_1",
-						"Dance_right_2", 
-						"Dance_right_3", 
+						#"Dance_right_1",
+						#"Dance_right_2", 
+						#"Dance_right_3", 
 						"Dance_right_4", 
-						"Dance_right_5",
-						"Dance_right_6"
+						#"Dance_right_5",
+						#"Dance_right_6"
 						]
 
 signal streak_emited(streak)
