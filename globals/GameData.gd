@@ -12,7 +12,7 @@ const modes = ["Training", "Classic", "One Life"]
 
 var max_amount setget set_max
 var current setget set_current
-var score setget set_score
+var score 
 var note_streak setget set_streak
 
 
@@ -36,10 +36,15 @@ func set_current(new_val):
 			emit_signal("depleted")
 
 
-func set_score(new_score):
-	score = new_score
+func _increase_score(n):
+	GameStatus.rank_score += n
+	if (note_streak == 0):
+		score += n
+		
+	else:
+		score += n * note_streak
 	emit_signal("score_changed", score)
-	
+
 func set_streak(new_streak):
 	note_streak = new_streak
 	emit_signal("streak_changed", note_streak)

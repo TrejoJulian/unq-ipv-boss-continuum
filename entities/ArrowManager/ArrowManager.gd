@@ -32,7 +32,7 @@ func _ready():
 func increase_score(n):
 	GameData.current += 5
 	GameData.note_streak += 1
-	GameData.score += n  
+	GameData._increase_score(n)
 	GameStatus.count_note()
 	play_note_audio()
 
